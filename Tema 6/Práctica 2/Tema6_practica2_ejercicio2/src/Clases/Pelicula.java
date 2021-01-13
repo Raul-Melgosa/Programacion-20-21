@@ -16,7 +16,7 @@ public class Pelicula {
     private String año = "0000";
     private float duracion = 0.0f;
     private String tipo;
-    private ArrayList<Estudio> ListaEstudios;
+    private ArrayList<Estudio> ListaEstudios = new ArrayList();
 
     public Pelicula() {
     }

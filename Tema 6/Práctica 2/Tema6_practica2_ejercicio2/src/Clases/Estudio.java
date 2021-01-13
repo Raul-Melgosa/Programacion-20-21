@@ -20,7 +20,7 @@ public class Estudio {
     private LocalDate fechaFundacion;
     private String pais;
     private String[] telefonos;
-    private ArrayList<Pelicula>listaPeliculas;
+    private ArrayList<Pelicula>listaPeliculas = new ArrayList();
 
     public Estudio(String nombre, String ciudad, String direccion, String dirWeb, LocalDate fechaFundacion, String pais, String[] telefonos, ArrayList<Pelicula> listaPeliculas) {
         this.nombre = nombre;

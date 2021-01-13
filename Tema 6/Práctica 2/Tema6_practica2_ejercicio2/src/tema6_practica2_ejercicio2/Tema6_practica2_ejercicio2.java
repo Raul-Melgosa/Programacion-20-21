@@ -38,7 +38,8 @@ public class Tema6_practica2_ejercicio2 {
         inicializarPeliculas();
         terminarDeInicializarEstudios();
         
-        JOptionPane.showMessageDialog(null, encontrarEstudiosPeliculaMaslarga());
+        String salidaPeliLarga = encontrarEstudiosPeliculaMaslarga();
+        JOptionPane.showMessageDialog(null, salidaPeliLarga);
         
         JOptionPane.showMessageDialog(null, encontrarEstudiosConMasPeliculas());
         
@@ -85,11 +86,13 @@ public class Tema6_practica2_ejercicio2 {
         Pelicula p3 = new Pelicula("Tipo pelicula 3"); p3.setTitulo("Película 3");
         Pelicula p4 = new Pelicula("Tipo pelicula 4"); p4.setTitulo("Película 4");
         
-        for(int x=0 ; x<listaPeliculas.size(); x++)
-        {
-            listaPeliculas.get(x).setDuracion((float)Math.random()*1000);
-            System.out.println("Duracion pelicula " + listaPeliculas.get(x).getTitulo() + " " + listaPeliculas.get(x).getDuracion());
-        }
+        
+        p1.setDuracion((float)Math.random()*1000);
+        p2.setDuracion((float)Math.random()*1000);
+        p3.setDuracion((float)Math.random()*1000);
+        p4.setDuracion((float)Math.random()*1000);
+        
+        
         
         p1.setListaEstudios(estudiosP1);
         p2.setListaEstudios(estudiosP2);
@@ -118,6 +121,28 @@ public class Tema6_practica2_ejercicio2 {
                 }
             }
         }
+        
+        estudiosP1.clear();
+        estudiosP2.clear();
+        estudiosP3.clear();
+        estudiosP4.clear();
+        
+        estudiosP1.add(listaEstudios.get(5-1));
+        estudiosP1.add(listaEstudios.get(2-1));
+        
+        estudiosP2.add(listaEstudios.get(1-1));
+        estudiosP2.add(listaEstudios.get(2-1));
+        
+        estudiosP3.add(listaEstudios.get(2-1));
+        estudiosP3.add(listaEstudios.get(3-1));
+        estudiosP3.add(listaEstudios.get(4-1));
+        
+        estudiosP4.add(listaEstudios.get(1-1));
+        
+        listaPeliculas.get(0).setListaEstudios(estudiosP1);
+        listaPeliculas.get(1).setListaEstudios(estudiosP2);
+        listaPeliculas.get(2).setListaEstudios(estudiosP3);
+        listaPeliculas.get(3).setListaEstudios(estudiosP4);
     }
     
     
@@ -147,7 +172,7 @@ public class Tema6_practica2_ejercicio2 {
     public static String encontrarEstudiosPeliculaMaslarga()
     {
         Pelicula pelimasLarga = new Pelicula();
-        pelimasLarga.setDuracion(0.01f);
+        pelimasLarga.setDuracion(0f);
         for(int y=0 ; y<listaPeliculas.size() ; y++)
         {
             if(listaPeliculas.get(y).getDuracion()>pelimasLarga.getDuracion())
