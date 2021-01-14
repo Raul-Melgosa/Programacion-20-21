@@ -89,6 +89,8 @@ public class Tema6_Practica2_Ejercicio3 {
             System.out.println(listaTodasEmpresas.get(x).toString());
         }
         
+        JOptionPane.showMessageDialog(null, encontrarDirectivoMasSubordinados());
+        
     }
 
     private static Empleado generarEmpleado() 
@@ -186,14 +188,10 @@ public class Tema6_Practica2_Ejercicio3 {
     {
         ArrayList<Empleado> a = new ArrayList();
         int cantidad = (int)Math.rint(Math.random()*100);
-        if(numeroEmpresas==1)
+        for(int x=0; x<cantidad && x<listaTodosEmpleados.size() ;x++)
         {
-            cantidad=copia.size();
-        }
-        for(int x=0; x<cantidad && x<listaTodosEmpleados.size() && copia.size()!=0;x++)
-        {
-            a.add(copia.get(x));
-            copia.remove(x);
+            a.add(listaTodosEmpleados.get(x));
+            listaTodosEmpleados.remove(x);
         }
         return a;
     }
@@ -294,5 +292,20 @@ public class Tema6_Practica2_Ejercicio3 {
             }
         }
         return sueldoBruto;
+    }
+
+    private static String encontrarDirectivoMasSubordinados() 
+    {
+        Directivo a =new Directivo("", 0, 0, "");
+        ArrayList<Empleado> b = new ArrayList();
+        a.setListaSubordinados(b);
+        for(int x=0 ; x<listaTodosDirectivos.size() ; x++)
+        {
+            if(listaTodosDirectivos.get(x).getListaSubordinados().size()>a.getListaSubordinados().size())
+            {
+                a=listaTodosDirectivos.get(x);
+            }
+        }
+        return a.getNombre();
     }
 }
