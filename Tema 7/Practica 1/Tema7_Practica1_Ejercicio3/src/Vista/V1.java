@@ -5,7 +5,7 @@
  */
 package Vista;
 
-import tema7_practica1_ejercicio2.Controlador;
+import tema7_practica1_ejercicio3.Controlador;
 
 /**
  *
@@ -29,37 +29,24 @@ public class V1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lDni = new javax.swing.JLabel();
+        tfDni = new javax.swing.JTextField();
+        bAceptar = new javax.swing.JButton();
+        bSalir = new javax.swing.JButton();
         lTitulo = new javax.swing.JLabel();
         lNombre = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
         lApellidos = new javax.swing.JLabel();
         tfApellidos = new javax.swing.JTextField();
-        lDni = new javax.swing.JLabel();
-        tfDni = new javax.swing.JTextField();
-        bAceptar = new javax.swing.JButton();
-        bSalir = new javax.swing.JButton();
+        lCurso = new javax.swing.JLabel();
+        tfCurso = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Dar de alta una nueva persona");
-
-        lTitulo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lTitulo.setText("ALTA DE PERSONAS");
-
-        lNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lNombre.setText("Nombre");
-
-        tfNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
-
-        lApellidos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lApellidos.setText("Apellidos");
-
-        tfApellidos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
 
         lDni.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lDni.setText("DNI");
 
-        tfDni.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
+        tfDni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
         bAceptar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         bAceptar.setText("Aceptar");
@@ -77,28 +64,49 @@ public class V1 extends javax.swing.JFrame {
             }
         });
 
+        lTitulo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lTitulo.setText("ALTA DE PERSONAS");
+
+        lNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lNombre.setText("Nombre");
+
+        tfNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+
+        lApellidos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lApellidos.setText("Apellidos");
+
+        tfApellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+
+        lCurso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lCurso.setText("Curso");
+
+        tfCurso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(150, Short.MAX_VALUE)
                 .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
+                .addContainerGap(150, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(175, 175, 175)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(bSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,65 +129,21 @@ public class V1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lDni)
                     .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lCurso)
+                    .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bAceptar)
                     .addComponent(bSalir))
-                .addGap(34, 34, 34))
+                .addGap(25, 25, 25))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        tfNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.DARK_GRAY, java.awt.Color.DARK_GRAY, java.awt.Color.DARK_GRAY, java.awt.Color.DARK_GRAY));
-        tfApellidos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.DARK_GRAY, java.awt.Color.DARK_GRAY, java.awt.Color.DARK_GRAY, java.awt.Color.DARK_GRAY));
-        tfDni.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.DARK_GRAY, java.awt.Color.DARK_GRAY, java.awt.Color.DARK_GRAY, java.awt.Color.DARK_GRAY));
-        boolean nombreCorrecto=false;
-        boolean apellidosCorrecto=false;
-        boolean dniCorrecto=false;
-        String nombre = tfNombre.getText();
-        String apellidos = tfApellidos.getText();
-        String dni = tfDni.getText();
-        if(comprobarNombreCorrecto(nombre)==true) 
-        {
-            nombreCorrecto=true;
-        }
-        else
-        {
-            tfNombre.setText("");
-            tfNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.RED, java.awt.Color.RED, java.awt.Color.RED, java.awt.Color.RED));
-        }
-        if(comprobarApellidosCorrecto(apellidos))
-        {
-            apellidosCorrecto=true;
-        }
-        else
-        {
-            tfApellidos.setText("");
-            tfApellidos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.RED, java.awt.Color.RED, java.awt.Color.RED, java.awt.Color.RED));
-        }
-        
-        if(comprobarDniCorrecto(dni))
-        {
-            dniCorrecto=true;
-        }
-        else
-        {
-            tfDni.setText("");
-            tfDni.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.RED, java.awt.Color.RED, java.awt.Color.RED, java.awt.Color.RED));
-        }
-        
-        if(dniCorrecto && apellidosCorrecto && nombreCorrecto)
-        {
-            Controlador.getDatos(nombre,apellidos,dni);
-            tfDni.setText("");
-            tfApellidos.setText("");
-            tfNombre.setText("");
-        }
-    }//GEN-LAST:event_bAceptarActionPerformed
-
-    private boolean comprobarNombreCorrecto(String nombre)
+    private static boolean comprobarNombre(String nombre)
     {
         boolean correcto=false;
         if(!nombre.isEmpty())
@@ -194,7 +158,7 @@ public class V1 extends javax.swing.JFrame {
         return correcto;
     }
     
-    private boolean comprobarApellidosCorrecto(String apellido)
+    private static boolean comprobarApellidos(String apellido)
     {
         boolean correcto=false;
         if(!apellido.isEmpty())
@@ -209,7 +173,7 @@ public class V1 extends javax.swing.JFrame {
         return correcto;
     }
     
-    private boolean comprobarDniCorrecto(String dni)
+    private static boolean comprobarDni(String dni)
     {
         boolean correcto=false;
         if(!dni.isEmpty() && dni.length()==9)
@@ -228,18 +192,81 @@ public class V1 extends javax.swing.JFrame {
         return correcto;
     }
     
-    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
-        if(!tfNombre.getText().equalsIgnoreCase("") && !tfApellidos.getText().equalsIgnoreCase("") && !tfDni.getText().equalsIgnoreCase(""))
+    private static boolean comprobarCurso(String curso)
+    {
+        boolean correcto=false;
+        if(!curso.isEmpty() && curso.length()==2)
         {
-            String nombre = tfNombre.getText();
-            String apellidos = tfApellidos.getText();
-            String dni = tfDni.getText();
+            if((curso.charAt(0)=='1' || curso.charAt(0)=='2' || curso.charAt(0)=='3' || curso.charAt(0)=='4') && (curso.charAt(1)=='A' || curso.charAt(1)=='B' || curso.charAt(1)=='C' || curso.charAt(1)=='D'))
+            {
+                correcto=true;
+            }
+        }
+        
+        return correcto;
+    }
+    
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        tfNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        tfApellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        tfDni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        tfCurso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        
+        boolean nombreCorrecto=false,apellidosCorrecto=false,dniCorrecto=false,cursoCorrecto=false;
+        
+        if(comprobarNombre(tfNombre.getText()))
+        {
+            nombreCorrecto=true;
+        }
+        else
+        {
+            tfNombre.setText("");
+            tfNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        }
+        
+        if(comprobarApellidos(tfApellidos.getText()))
+        {
+            apellidosCorrecto=true;
+        }
+        else
+        {
+            tfApellidos.setText("");
+            tfApellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        }
+        
+        if(comprobarDni(tfDni.getText()))
+        {
+            dniCorrecto=true;
+        }
+        else
+        {
+            tfDni.setText("");
+            tfDni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        }
+        
+        if(comprobarCurso(tfCurso.getText()))
+        {
+            cursoCorrecto=true;
+        }
+        else
+        {
+            tfCurso.setText("");
+            tfCurso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        }
+        
+        if(nombreCorrecto && apellidosCorrecto && dniCorrecto && cursoCorrecto)
+        {
+            Controlador.getDatos(tfNombre.getText(), tfApellidos.getText(), tfDni.getText(), tfCurso.getText());
             tfNombre.setText("");
             tfApellidos.setText("");
             tfDni.setText("");
-            Controlador.getDatos(nombre,apellidos,dni);
+            tfCurso.setText("");
         }
-        Controlador.devolverPersonas();
+        
+    }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        Controlador.Salir();
     }//GEN-LAST:event_bSalirActionPerformed
 
     /**
@@ -281,10 +308,12 @@ public class V1 extends javax.swing.JFrame {
     private javax.swing.JButton bAceptar;
     private javax.swing.JButton bSalir;
     private javax.swing.JLabel lApellidos;
+    private javax.swing.JLabel lCurso;
     private javax.swing.JLabel lDni;
     private javax.swing.JLabel lNombre;
     private javax.swing.JLabel lTitulo;
     private javax.swing.JTextField tfApellidos;
+    private javax.swing.JTextField tfCurso;
     private javax.swing.JTextField tfDni;
     private javax.swing.JTextField tfNombre;
     // End of variables declaration//GEN-END:variables
