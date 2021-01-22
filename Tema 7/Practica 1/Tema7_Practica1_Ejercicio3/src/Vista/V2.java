@@ -5,7 +5,10 @@
  */
 package Vista;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import tema7_practica1_ejercicio3.Controlador;
 
 /**
  *
@@ -29,121 +32,170 @@ public class V2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bModificarCurso = new javax.swing.JButton();
-        bSalir = new javax.swing.JButton();
         lTitulo = new javax.swing.JLabel();
-        lNombre = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
-        lApellidos = new javax.swing.JLabel();
+        lNombre = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         tfApellidos = new javax.swing.JTextField();
+        tfDni = new javax.swing.JTextField();
+        lDni = new javax.swing.JLabel();
         lCurso = new javax.swing.JLabel();
         tfCurso = new javax.swing.JTextField();
-        lDni = new javax.swing.JLabel();
-        tfDni = new javax.swing.JTextField();
+        bCambiar = new javax.swing.JButton();
+        bBorrar = new javax.swing.JButton();
+        bSalir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        bModificarCurso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        bModificarCurso.setText("Modificar");
-        bModificarCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bModificarCursoActionPerformed(evt);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
-
-        bSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        bSalir.setText("Borrar");
 
         lTitulo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        lNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lNombre.setText("Nombre");
-
         tfNombre.setEditable(false);
-        tfNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
-        lApellidos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lApellidos.setText("Apellidos");
+        lNombre.setText("Nombre:");
+
+        jLabel1.setText("Apellidos:");
 
         tfApellidos.setEditable(false);
-        tfApellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-
-        lCurso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lCurso.setText("Curso");
-
-        tfCurso.setEditable(false);
-        tfCurso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-
-        lDni.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lDni.setText("DNI");
 
         tfDni.setEditable(false);
-        tfDni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+
+        lDni.setText("DNI:");
+
+        lCurso.setText("Curso:");
+
+        tfCurso.setEditable(false);
+
+        bCambiar.setText("Modificar");
+        bCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCambiarActionPerformed(evt);
+            }
+        });
+
+        bBorrar.setText("Borrar");
+        bBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBorrarActionPerformed(evt);
+            }
+        });
+
+        bSalir.setText("Salir");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
-                .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bModificarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(bSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 69, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, 0)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfNombre)
+                                    .addComponent(tfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lDni, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, 0)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(bCambiar)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(bBorrar)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(bSalir))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfDni)
+                                        .addComponent(tfCurso)))))
+                        .addGap(0, 69, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lNombre)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lNombre))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lApellidos)
+                    .addComponent(jLabel1)
                     .addComponent(tfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lDni)
-                    .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lDni))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lCurso)
                     .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 21, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bModificarCurso)
+                    .addComponent(bCambiar)
+                    .addComponent(bBorrar)
                     .addComponent(bSalir))
-                .addGap(25, 25, 25))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bModificarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarCursoActionPerformed
-        String nuevoCurso = JOptionPane.showInputDialog("Introduce el nuevo curso");
-    }//GEN-LAST:event_bModificarCursoActionPerformed
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Controlador.cambiarPantalla();    }//GEN-LAST:event_formWindowClosing
+
+    private void bCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCambiarActionPerformed
+        String nuevoDato="", cambiar = JOptionPane.showInputDialog("Que quieres cambiar");
+        cambiar=cambiar.toLowerCase();
+        Pattern patron = Pattern.compile("^(nombre|apellidos|dni|curso)$");
+        Matcher m = patron.matcher(cambiar);
+        switch (cambiar)
+        {
+            case "nombre":
+                nuevoDato = JOptionPane.showInputDialog("Introduce el nuevo nombre");
+            case "apellidos":
+                nuevoDato = JOptionPane.showInputDialog("Introduce los nuevos apellidos");
+            case "dni":
+                nuevoDato = JOptionPane.showInputDialog("Introduce el nuevo DNI");
+            case "curso":
+                nuevoDato = JOptionPane.showInputDialog("Introduce el nuevo curso");
+        }
+        Controlador.cambioDatos(cambiar,nuevoDato);
+    }//GEN-LAST:event_bCambiarActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        Controlador.cambiarPantalla();
+    }//GEN-LAST:event_bSalirActionPerformed
+
+    private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
+        int seguro = JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar este alumno");
+        if(seguro==0)
+        {
+            Controlador.borrarPersona(tfDni.getText());
+            Controlador.cambiarPantalla();
+        }
+        
+    }//GEN-LAST:event_bBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,11 +231,22 @@ public class V2 extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void ponerDatos(String nombre, String apellidos, String dni, String curso)
+    {
+        System.out.println(nombre);
+        lTitulo.setText(nombre);
+        tfNombre.setText(nombre);
+        tfApellidos.setText(apellidos);
+        tfDni.setText(dni);
+        tfCurso.setText(curso);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bModificarCurso;
+    private javax.swing.JButton bBorrar;
+    private javax.swing.JButton bCambiar;
     private javax.swing.JButton bSalir;
-    private javax.swing.JLabel lApellidos;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lCurso;
     private javax.swing.JLabel lDni;
     private javax.swing.JLabel lNombre;

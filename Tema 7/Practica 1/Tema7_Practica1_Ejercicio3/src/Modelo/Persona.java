@@ -13,9 +13,9 @@ public class Persona {
     private String dni;
     private String nombre;
     private String apellidos;
-    private String curso;
+    private Curso curso;
 
-    public Persona(String nombre, String apellidos, String dni, String curso) {
+    public Persona(String nombre, String apellidos, String dni, Curso curso) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -49,11 +49,11 @@ public class Persona {
         this.apellidos = apellidos;
     }
 
-    public String getCurso() {
+    public Curso getCurso() {
         return curso;
     }
 
-    public void setCurso(String curso) {
+    public void setCurso(Curso curso) {
         this.curso = curso;
     }
 

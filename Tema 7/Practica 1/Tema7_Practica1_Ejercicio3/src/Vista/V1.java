@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import java.util.regex.*;
 import tema7_practica1_ejercicio3.Controlador;
 
 /**
@@ -42,6 +43,11 @@ public class V1 extends javax.swing.JFrame {
         tfCurso = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
 
         lDni.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lDni.setText("DNI");
@@ -88,36 +94,37 @@ public class V1 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
-                .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(bSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(bSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150)
+                .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(21, 21, 21)
                 .addComponent(lTitulo)
-                .addGap(37, 37, 37)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lNombre)
                     .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -146,14 +153,12 @@ public class V1 extends javax.swing.JFrame {
     private static boolean comprobarNombre(String nombre)
     {
         boolean correcto=false;
-        if(!nombre.isEmpty())
+        
+        Pattern patron = Pattern.compile("^([A-Z]|Ñ)([a-z]|ñ|á|é|í|ó|ú)+( ([A-Z]|Ñ)([a-z]|ñ)+)*$");
+        Matcher m = patron.matcher(nombre);
+        if(m.matches())
         {
-            int x;
-            for(x=0; x<nombre.length() && !Character.isDigit(nombre.charAt(x)); x++);
-            if(x==nombre.length())
-            {
-                correcto=true;
-            }
+            correcto=true;
         }
         return correcto;
     }
@@ -161,14 +166,12 @@ public class V1 extends javax.swing.JFrame {
     private static boolean comprobarApellidos(String apellido)
     {
         boolean correcto=false;
-        if(!apellido.isEmpty())
+        
+        Pattern patron = Pattern.compile("^([A-Z]|Ñ)([a-z]|ñ|á|é|í|ó|ú)+( ([A-Z]|Ñ)([a-z]|ñ)+)*$");
+        Matcher m = patron.matcher(apellido);
+        if(m.matches())
         {
-            int x;
-            for(x=0; x<apellido.length() && !Character.isDigit(apellido.charAt(x)); x++);
-            if(x==apellido.length())
-            {
-                correcto=true;
-            }
+            correcto=true;
         }
         return correcto;
     }
@@ -176,17 +179,11 @@ public class V1 extends javax.swing.JFrame {
     private static boolean comprobarDni(String dni)
     {
         boolean correcto=false;
-        if(!dni.isEmpty() && dni.length()==9)
+        Pattern patron = Pattern.compile("^[0-9]{8}[A-Z]{1}$");
+        Matcher m = patron.matcher(dni);
+        if(m.matches())
         {
-            int x;
-            for(x=0; x<(dni.length()-1) && Character.isDigit(dni.charAt(x)); x++);
-            if(x==8)
-            {
-                if(!Character.isDigit(dni.charAt((8))))
-                {
-                    correcto=true;
-                }
-            }
+            correcto=true;
         }
         
         return correcto;
@@ -195,12 +192,12 @@ public class V1 extends javax.swing.JFrame {
     private static boolean comprobarCurso(String curso)
     {
         boolean correcto=false;
-        if(!curso.isEmpty() && curso.length()==2)
+        
+        Pattern patron = Pattern.compile("^[0-4][A-D]$");
+        Matcher m = patron.matcher(curso);
+        if(m.matches())
         {
-            if((curso.charAt(0)=='1' || curso.charAt(0)=='2' || curso.charAt(0)=='3' || curso.charAt(0)=='4') && (curso.charAt(1)=='A' || curso.charAt(1)=='B' || curso.charAt(1)=='C' || curso.charAt(1)=='D'))
-            {
-                correcto=true;
-            }
+            correcto=true;
         }
         
         return correcto;
@@ -261,6 +258,7 @@ public class V1 extends javax.swing.JFrame {
             tfApellidos.setText("");
             tfDni.setText("");
             tfCurso.setText("");
+            tfNombre.requestFocus();
         }
         
     }//GEN-LAST:event_bAceptarActionPerformed
@@ -268,6 +266,10 @@ public class V1 extends javax.swing.JFrame {
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         Controlador.Salir();
     }//GEN-LAST:event_bSalirActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        tfNombre.requestFocus();
+    }//GEN-LAST:event_formFocusGained
 
     /**
      * @param args the command line arguments
