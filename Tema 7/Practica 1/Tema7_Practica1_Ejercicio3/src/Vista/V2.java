@@ -173,12 +173,20 @@ public class V2 extends javax.swing.JFrame {
         {
             case "nombre":
                 nuevoDato = JOptionPane.showInputDialog("Introduce el nuevo nombre");
+                tfNombre.setText(nuevoDato);
+                break;
             case "apellidos":
                 nuevoDato = JOptionPane.showInputDialog("Introduce los nuevos apellidos");
+                tfApellidos.setText(nuevoDato);
+                break;
             case "dni":
                 nuevoDato = JOptionPane.showInputDialog("Introduce el nuevo DNI");
+                tfDni.setText(nuevoDato);
+                break;
             case "curso":
                 nuevoDato = JOptionPane.showInputDialog("Introduce el nuevo curso");
+                tfCurso.setText(nuevoDato);
+                break;
         }
         Controlador.cambioDatos(cambiar,nuevoDato);
     }//GEN-LAST:event_bCambiarActionPerformed

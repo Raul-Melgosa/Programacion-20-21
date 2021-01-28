@@ -87,10 +87,13 @@ public class Controlador {
         {
             case "nombre":
                 listaPersonas.get(numeroPersona).setNombre(nuevoDato);
+                break;
             case "apellidos":
                 listaPersonas.get(numeroPersona).setApellidos(nuevoDato);
+                break;
             case "dni":
                 listaPersonas.get(numeroPersona).setDni(nuevoDato);
+                break;
             case "curso":
                 int numeroCurso=0;
                 for(int x=0; x<listaCursos.size() && !listaCursos.get(x).getCurso().equals(nuevoDato); x++)
