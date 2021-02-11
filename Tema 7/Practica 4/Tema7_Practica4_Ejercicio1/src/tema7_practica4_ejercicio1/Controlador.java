@@ -127,6 +127,7 @@ public class Controlador {
     
     public static void main(String[] args) {
         inicializarMovimientos();
+        System.out.println(listaMovimientos.get(4).mostrar());
         inicializarCuentas();
         inicializarClientes();
         
@@ -151,6 +152,22 @@ public class Controlador {
         principal.setVisible(true);
     }
     
+    public static void irPantallaConsulta(javax.swing.JFrame inicio)
+    {
+        inicio.dispose();
+        Consulta consulta = new Consulta();
+        consulta.setLocationRelativeTo(null);
+        consulta.setVisible(true);
+    }
+    
+    public static void irPantallaMovimientos(javax.swing.JFrame inicio)
+    {
+        inicio.dispose();
+        Movimientos mov = new Movimientos();
+        mov.setLocationRelativeTo(null);
+        mov.setVisible(true);
+    }
+    
     public static boolean comprobarCredenciales(String dni, String clave)
     {
         boolean correcto=false;
@@ -167,6 +184,36 @@ public class Controlador {
             }
         }
         return correcto;
+    }
+    
+    public static ArrayList<String> enviarCuentas()
+    {
+        ArrayList<String> devolver = new ArrayList();
+        for(int x=0;x<clienteGlobal.getListaCuentasCliente().size(); x++)
+        {
+            devolver.add(clienteGlobal.getListaCuentasCliente().get(x).getNumeroDeCuenta());
+        }
+        return devolver;
+    }
+    
+    public static ArrayList<String> enviarMovimientosCuentas(int posicion)
+    {
+        ArrayList<String> devolver = new ArrayList();
+        for(int x=0;x<5; x++)
+        {
+            devolver.add(clienteGlobal.getListaCuentasCliente().get(posicion).getListaMovimientosCuenta().get(x).mostrar());
+        }
+        return devolver;
+    }
+    
+    public static String enviarSaldo(int posicion)
+    {
+        String devolver="";
+        for(int x=0;x<5; x++)
+        {
+            devolver=""+clienteGlobal.getListaCuentasCliente().get(posicion).getSaldo();
+        }
+        return devolver;
     }
     
 }

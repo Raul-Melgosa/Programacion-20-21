@@ -11,12 +11,12 @@ import tema7_practica4_ejercicio1.Controlador;
  *
  * @author 1GDAW09
  */
-public class Principal extends javax.swing.JFrame {
+public class Movimientos extends javax.swing.JFrame {
 
     /**
-     * Creates new form Principal
+     * Creates new form Movimiento
      */
-    public Principal() {
+    public Movimientos() {
         initComponents();
     }
 
@@ -31,7 +31,6 @@ public class Principal extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         bConsulta = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         bMovimientos = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -61,14 +60,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(bConsulta);
-
-        jButton3.setText(" ");
-        jButton3.setBorder(null);
-        jButton3.setEnabled(false);
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton3);
 
         bMovimientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/movimientos.png"))); // NOI18N
         bMovimientos.setBorder(null);
@@ -135,15 +126,11 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 333, Short.MAX_VALUE))
+                .addGap(0, 533, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void miConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultaActionPerformed
-        Controlador.irPantallaConsulta(this);
-    }//GEN-LAST:event_miConsultaActionPerformed
 
     private void bConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultaActionPerformed
         miConsulta.doClick();
@@ -152,6 +139,10 @@ public class Principal extends javax.swing.JFrame {
     private void bMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMovimientosActionPerformed
         miMovimientos.doClick();
     }//GEN-LAST:event_bMovimientosActionPerformed
+
+    private void miConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultaActionPerformed
+        Controlador.irPantallaConsulta(this);
+    }//GEN-LAST:event_miConsultaActionPerformed
 
     private void miMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miMovimientosActionPerformed
         Controlador.irPantallaMovimientos(this);
@@ -174,20 +165,21 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Movimientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Movimientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Movimientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Movimientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new Movimientos().setVisible(true);
             }
         });
     }
@@ -195,7 +187,6 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConsulta;
     private javax.swing.JButton bMovimientos;
-    private javax.swing.JButton jButton3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

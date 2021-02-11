@@ -6,6 +6,7 @@
 package Vista;
 
 import java.util.ArrayList;
+import javax.swing.JButton;
 import tema7_practica4_ejercicio1.Controlador;
 
 /**
@@ -299,7 +300,7 @@ public class Identificacion extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         labelError.setVisible(false);
-        ArrayList<javax.swing.JButton> listaBotones = new ArrayList();
+        ArrayList<JButton> listaBotones = new ArrayList();
         ArrayList<String> listaNumeros = new ArrayList();
         listaBotones.add(bCero);listaNumeros.add("0");
         listaBotones.add(bUno);listaNumeros.add("1");

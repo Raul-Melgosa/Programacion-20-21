@@ -51,5 +51,11 @@ public class Movimiento {
         this.cantidad = cantidad;
     }
     
-    
+    public String mostrar()
+    {
+        String salida="";
+        salida+=this.getFecha().getDayOfMonth()+"/"+this.getFecha().getMonthValue()+"/"+this.getFecha().getYear();
+        salida+="  "+this.getTipo()+"  "+this.getCantidad();
+        return salida;
+    }
 }
