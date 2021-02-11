@@ -198,8 +198,17 @@ public class Controlador {
     
     public static ArrayList<String> enviarMovimientosCuentas(int posicion)
     {
+        int y=0;
+        if(clienteGlobal.getListaCuentasCliente().get(posicion).getListaMovimientosCuenta().size()>5)
+        {
+            y=5;
+        }
+        else
+        {
+            y=clienteGlobal.getListaCuentasCliente().get(posicion).getListaMovimientosCuenta().size();
+        }
         ArrayList<String> devolver = new ArrayList();
-        for(int x=0;x<5; x++)
+        for(int x=0;x<y; x++)
         {
             devolver.add(clienteGlobal.getListaCuentasCliente().get(posicion).getListaMovimientosCuenta().get(x).mostrar());
         }
@@ -209,7 +218,7 @@ public class Controlador {
     public static String enviarSaldo(int posicion)
     {
         String devolver="";
-        for(int x=0;x<5; x++)
+        for(int x=0;x<6; x++)
         {
             devolver=""+clienteGlobal.getListaCuentasCliente().get(posicion).getSaldo();
         }

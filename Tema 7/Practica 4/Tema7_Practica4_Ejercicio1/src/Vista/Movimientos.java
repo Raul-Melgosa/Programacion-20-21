@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import java.util.ArrayList;
 import tema7_practica4_ejercicio1.Controlador;
 
 /**
@@ -28,10 +29,30 @@ public class Movimientos extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        botonesCuentas = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         bConsulta = new javax.swing.JButton();
         bMovimientos = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        rbCuentas1 = new javax.swing.JRadioButton();
+        rbCuentas2 = new javax.swing.JRadioButton();
+        rbCuentas3 = new javax.swing.JRadioButton();
+        rbCuentas4 = new javax.swing.JRadioButton();
+        rbCuentas5 = new javax.swing.JRadioButton();
+        rbCuentas6 = new javax.swing.JRadioButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        cbTipos = new javax.swing.JComboBox<>();
+        labelEditable = new javax.swing.JLabel();
+        tfCuentaDestino = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfImporte = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        labelSaldo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -45,6 +66,11 @@ public class Movimientos extends javax.swing.JFrame {
         miMovimientos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
@@ -72,6 +98,166 @@ public class Movimientos extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(bMovimientos);
+
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cuentas"));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        botonesCuentas.add(rbCuentas1);
+        rbCuentas1.setText("jRadioButton1");
+        rbCuentas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCuentas1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        jPanel1.add(rbCuentas1, gridBagConstraints);
+
+        botonesCuentas.add(rbCuentas2);
+        rbCuentas2.setText("jRadioButton2");
+        rbCuentas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCuentas2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel1.add(rbCuentas2, gridBagConstraints);
+
+        botonesCuentas.add(rbCuentas3);
+        rbCuentas3.setText("jRadioButton3");
+        rbCuentas3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCuentas3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        jPanel1.add(rbCuentas3, gridBagConstraints);
+
+        botonesCuentas.add(rbCuentas4);
+        rbCuentas4.setText("jRadioButton4");
+        rbCuentas4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCuentas4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        jPanel1.add(rbCuentas4, gridBagConstraints);
+
+        botonesCuentas.add(rbCuentas5);
+        rbCuentas5.setText("jRadioButton5");
+        rbCuentas5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCuentas5ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        jPanel1.add(rbCuentas5, gridBagConstraints);
+
+        botonesCuentas.add(rbCuentas6);
+        rbCuentas6.setText("jRadioButton6");
+        rbCuentas6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCuentas6ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        jPanel1.add(rbCuentas6, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 300;
+        gridBagConstraints.ipady = 100;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel3.add(jPanel1, gridBagConstraints);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Movimientos"));
+        java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
+        jPanel2Layout.columnWidths = new int[] {0, 15, 0};
+        jPanel2Layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0};
+        jPanel2.setLayout(jPanel2Layout);
+
+        jLabel1.setText("Tipo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        jPanel2.add(jLabel1, gridBagConstraints);
+
+        cbTipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Transferencia", "Pago de recibo" }));
+        cbTipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTiposActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 150;
+        jPanel2.add(cbTipos, gridBagConstraints);
+
+        labelEditable.setText("Cuenta destino");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        jPanel2.add(labelEditable, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(tfCuentaDestino, gridBagConstraints);
+
+        jLabel3.setText("Importe");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        jPanel2.add(jLabel3, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(tfImporte, gridBagConstraints);
+
+        jButton1.setText("Aceptar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(jButton1, gridBagConstraints);
+
+        labelSaldo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        labelSaldo.setText("SALDO:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
+        jPanel2.add(labelSaldo, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 300;
+        gridBagConstraints.ipady = 100;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel3.add(jPanel2, gridBagConstraints);
+
+        jScrollPane1.setViewportView(jPanel3);
 
         jMenu1.setText("Resumen");
         jMenuBar1.add(jMenu1);
@@ -121,12 +307,14 @@ public class Movimientos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 533, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE))
         );
 
         pack();
@@ -147,6 +335,70 @@ public class Movimientos extends javax.swing.JFrame {
     private void miMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miMovimientosActionPerformed
         Controlador.irPantallaMovimientos(this);
     }//GEN-LAST:event_miMovimientosActionPerformed
+
+    private static int cuentaSeleccionada=-1;
+        
+    private void rbCuentas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCuentas1ActionPerformed
+        cuentaSeleccionada=0;
+        labelSaldo.setText(Controlador.enviarSaldo(cuentaSeleccionada));
+    }//GEN-LAST:event_rbCuentas1ActionPerformed
+
+    private void rbCuentas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCuentas2ActionPerformed
+        cuentaSeleccionada=1;
+        labelSaldo.setText(Controlador.enviarSaldo(cuentaSeleccionada));
+    }//GEN-LAST:event_rbCuentas2ActionPerformed
+
+    private void rbCuentas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCuentas3ActionPerformed
+        cuentaSeleccionada=2;
+        labelSaldo.setText(Controlador.enviarSaldo(cuentaSeleccionada));
+    }//GEN-LAST:event_rbCuentas3ActionPerformed
+
+    private void rbCuentas4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCuentas4ActionPerformed
+        cuentaSeleccionada=3;
+        labelSaldo.setText(Controlador.enviarSaldo(cuentaSeleccionada));
+    }//GEN-LAST:event_rbCuentas4ActionPerformed
+
+    private void rbCuentas5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCuentas5ActionPerformed
+        cuentaSeleccionada=4;
+        labelSaldo.setText(Controlador.enviarSaldo(cuentaSeleccionada));
+    }//GEN-LAST:event_rbCuentas5ActionPerformed
+
+    private void rbCuentas6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCuentas6ActionPerformed
+        cuentaSeleccionada=5;
+        labelSaldo.setText(Controlador.enviarSaldo(cuentaSeleccionada));
+    }//GEN-LAST:event_rbCuentas6ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        ArrayList<String> cuentas = Controlador.enviarCuentas();
+        ArrayList<javax.swing.JRadioButton> listaRadioButtons = new ArrayList();
+        listaRadioButtons.add(rbCuentas1);      
+        listaRadioButtons.add(rbCuentas2);      
+        listaRadioButtons.add(rbCuentas3);      
+        listaRadioButtons.add(rbCuentas4);      
+        listaRadioButtons.add(rbCuentas5);      
+        listaRadioButtons.add(rbCuentas6);
+        botonesCuentas.clearSelection();
+        for(int x=0; x<listaRadioButtons.size();x++)
+        {
+            listaRadioButtons.get(x).setVisible(false);
+        }
+        for(int x=0; x<cuentas.size();x++)
+        {
+            listaRadioButtons.get(x).setText(cuentas.get(x));
+            listaRadioButtons.get(x).setVisible(true);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void cbTiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTiposActionPerformed
+        if(cbTipos.getSelectedIndex()==0)
+        {
+            labelEditable.setText("Cuenta destino");
+        }
+        else if(cbTipos.getSelectedIndex()==1)
+        {
+            labelEditable.setText("Referencia del recibo");
+        }
+    }//GEN-LAST:event_cbTiposActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +439,11 @@ public class Movimientos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConsulta;
     private javax.swing.JButton bMovimientos;
+    private javax.swing.ButtonGroup botonesCuentas;
+    private javax.swing.JComboBox<String> cbTipos;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -196,8 +453,22 @@ public class Movimientos extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel labelEditable;
+    private javax.swing.JLabel labelSaldo;
     private javax.swing.JMenuItem miConsulta;
     private javax.swing.JMenuItem miMovimientos;
+    private javax.swing.JRadioButton rbCuentas1;
+    private javax.swing.JRadioButton rbCuentas2;
+    private javax.swing.JRadioButton rbCuentas3;
+    private javax.swing.JRadioButton rbCuentas4;
+    private javax.swing.JRadioButton rbCuentas5;
+    private javax.swing.JRadioButton rbCuentas6;
+    private javax.swing.JTextField tfCuentaDestino;
+    private javax.swing.JTextField tfImporte;
     // End of variables declaration//GEN-END:variables
 }
