@@ -23,6 +23,7 @@ public class Controlador {
     private static ArrayList<Cuenta> listaCuentas = new ArrayList();
     private static ArrayList<Cliente> listaClientes = new ArrayList();
     private static Cliente clienteGlobal;
+    private static int posicionClienteGlobal;
     
     private static void inicializarMovimientos()
     {
@@ -179,6 +180,7 @@ public class Controlador {
                 {
                     correcto= true;
                     clienteGlobal=listaClientes.get(x);
+                    posicionClienteGlobal=x;
                     break;
                 }
             }
@@ -223,6 +225,14 @@ public class Controlador {
             devolver=""+clienteGlobal.getListaCuentasCliente().get(posicion).getSaldo();
         }
         return devolver;
+    }
+    
+    public static double registrarMovimiento(int posicionCuenta, String tipo, String fecha, double cantidad)
+    {
+        Movimiento mov = new Movimiento(tipo,fecha,cantidad);
+        listaClientes.get(posicionClienteGlobal).getListaCuentasCliente().get(posicionCuenta).getListaMovimientosCuenta().add(mov);
+        listaClientes.get(posicionClienteGlobal).getListaCuentasCliente().get(posicionCuenta).setSaldo(listaClientes.get(posicionClienteGlobal).getListaCuentasCliente().get(posicionCuenta).getSaldo()-cantidad);
+        return listaClientes.get(posicionClienteGlobal).getListaCuentasCliente().get(posicionCuenta).getSaldo();
     }
     
 }

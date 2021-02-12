@@ -5,7 +5,10 @@
  */
 package Vista;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import tema7_practica4_ejercicio1.Controlador;
 
 /**
@@ -215,6 +218,8 @@ public class Movimientos extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         jPanel2.add(labelEditable, gridBagConstraints);
+
+        tfCuentaDestino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -226,6 +231,8 @@ public class Movimientos extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         jPanel2.add(jLabel3, gridBagConstraints);
+
+        tfImporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -233,6 +240,11 @@ public class Movimientos extends javax.swing.JFrame {
         jPanel2.add(tfImporte, gridBagConstraints);
 
         jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -399,6 +411,86 @@ public class Movimientos extends javax.swing.JFrame {
             labelEditable.setText("Referencia del recibo");
         }
     }//GEN-LAST:event_cbTiposActionPerformed
+
+    private boolean comprobarFormatos()
+    {
+        boolean correcto=false;
+        if(cbTipos.getSelectedIndex()==0)
+        {
+            Pattern patron = Pattern.compile("^[0-9]{10}$");
+            Matcher m = patron.matcher(tfCuentaDestino.getText());
+            if(m.matches()&&!tfCuentaDestino.getText().isEmpty())
+            {
+                tfCuentaDestino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+                correcto=true;
+            }
+            else{
+                tfCuentaDestino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)));
+            }
+        }
+        else if(cbTipos.getSelectedIndex()==1)
+        {
+            Pattern patron = Pattern.compile("^[0-9]{8}-[A-Z]{2}$");
+            Matcher m = patron.matcher(tfCuentaDestino.getText());
+            if(m.matches()&&!tfCuentaDestino.getText().isEmpty())
+            {
+                tfCuentaDestino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+                correcto=true;
+            }
+            else{
+                tfCuentaDestino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)));
+            }
+        }
+        Pattern patron2 = Pattern.compile("^[0-9]*$");
+        Matcher m2 = patron2.matcher(tfImporte.getText());
+        if(m2.matches()&&!tfImporte.getText().isEmpty())
+        {
+            tfImporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+            if(correcto==true)
+            {
+                correcto=true;
+            }
+        }
+        else{
+            if(correcto==true)
+            {
+                correcto=false;
+            }
+            tfImporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)));
+        }
+        return correcto;
+    }
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(comprobarFormatos())
+        {
+            LocalDate fecha = LocalDate.now();
+            String monthString = fecha.getMonthValue()+"";
+            switch(monthString)
+            {
+                case "1": monthString = "01";
+                case "2": monthString = "02";
+                case "3": monthString = "03";
+                case "4": monthString = "04";
+                case "5": monthString = "05";
+                case "6": monthString = "06";
+                case "7": monthString = "07";
+                case "8": monthString = "08";
+                case "9": monthString = "09";
+            }
+            String fechaString = fecha.getDayOfMonth()+"/"+monthString+"/"+fecha.getYear();
+            if(cbTipos.getSelectedIndex()==0)
+            {
+                String cambiarCantidad = ""+Controlador.registrarMovimiento(cuentaSeleccionada, "Transferencia", fechaString, Double.parseDouble(tfImporte.getText()));
+                labelSaldo.setText(cambiarCantidad);
+            }
+            else if(cbTipos.getSelectedIndex()==1)
+            {
+                String cambiarCantidad = ""+Controlador.registrarMovimiento(cuentaSeleccionada, "Pago de recibo", fechaString, Double.parseDouble(tfImporte.getText()));
+                labelSaldo.setText(cambiarCantidad);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
