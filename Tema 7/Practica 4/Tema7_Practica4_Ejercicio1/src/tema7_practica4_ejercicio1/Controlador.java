@@ -210,7 +210,7 @@ public class Controlador {
             y=clienteGlobal.getListaCuentasCliente().get(posicion).getListaMovimientosCuenta().size();
         }
         ArrayList<String> devolver = new ArrayList();
-        for(int x=0;x<y; x++)
+        for(int x=clienteGlobal.getListaCuentasCliente().get(posicion).getListaMovimientosCuenta().size()-1;x>(clienteGlobal.getListaCuentasCliente().get(posicion).getListaMovimientosCuenta().size()-y-1); x--)
         {
             devolver.add(clienteGlobal.getListaCuentasCliente().get(posicion).getListaMovimientosCuenta().get(x).mostrar());
         }
