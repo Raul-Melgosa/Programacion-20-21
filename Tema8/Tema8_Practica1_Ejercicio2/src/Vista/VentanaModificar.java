@@ -6,6 +6,7 @@
 package Vista;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import tema8_practica1_ejercicio2.Controlador;
 
 /**
@@ -17,8 +18,22 @@ public class VentanaModificar extends javax.swing.JFrame {
     /**
      * Creates new form VentanaModificar
      */
+    
+    private ArrayList<String> listaNombres;
+    
     public VentanaModificar() {
         initComponents();
+        try{
+            ArrayList<String> listaNombres = Controlador.pedirNombresEventos();
+            for(int x=0; x<listaNombres.size();x++)
+            {
+                cbNombresEventos.addItem(listaNombres.get(x));
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass() +"\n" + e.getMessage());
+        }
     }
 
     /**
@@ -31,10 +46,17 @@ public class VentanaModificar extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
-        cbNombresEventos = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jToolBar1 = new javax.swing.JToolBar();
+        bAnnadir = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        bBorrar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        bEditar = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cbNombresEventos = new javax.swing.JComboBox<>();
         panelAnnadir = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
@@ -55,28 +77,79 @@ public class VentanaModificar extends javax.swing.JFrame {
         miBorrar = new javax.swing.JMenu();
         miAnnadirEvento = new javax.swing.JMenuItem();
         miBorrarEvento = new javax.swing.JMenuItem();
+        miEditar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         miSalir = new javax.swing.JMenuItem();
         miBienvenida = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+        setPreferredSize(new java.awt.Dimension(680, 371));
+
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        bAnnadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aceptar.png"))); // NOI18N
+        bAnnadir.setBorder(null);
+        bAnnadir.setFocusable(false);
+        bAnnadir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bAnnadir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bAnnadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAnnadirActionPerformed(evt);
             }
         });
-        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0};
-        layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0};
-        getContentPane().setLayout(layout);
+        jToolBar1.add(bAnnadir);
+
+        jLabel4.setText("   ");
+        jToolBar1.add(jLabel4);
+
+        bBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/borrar.png"))); // NOI18N
+        bBorrar.setBorder(null);
+        bBorrar.setFocusable(false);
+        bBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bBorrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBorrarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(bBorrar);
+
+        jLabel3.setText("   ");
+        jToolBar1.add(jLabel3);
+
+        bEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
+        bEditar.setBorder(null);
+        bEditar.setFocusable(false);
+        bEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(bEditar);
+
+        java.awt.GridBagLayout jPanel3Layout = new java.awt.GridBagLayout();
+        jPanel3Layout.columnWidths = new int[] {0, 10, 0};
+        jPanel3Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0};
+        jPanel3.setLayout(jPanel3Layout);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Modificar Eventos");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
-        getContentPane().add(jLabel1, gridBagConstraints);
+        jPanel3.add(jLabel1, gridBagConstraints);
+
+        jLabel2.setText("Evento: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        jPanel3.add(jLabel2, gridBagConstraints);
 
         cbNombresEventos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,30 +157,22 @@ public class VentanaModificar extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(cbNombresEventos, gridBagConstraints);
-
-        jLabel2.setText("Evento: ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        getContentPane().add(jLabel2, gridBagConstraints);
-
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel3.add(cbNombresEventos, gridBagConstraints);
 
         panelAnnadir.setLayout(new java.awt.GridBagLayout());
 
         jLabel5.setText("Nombre: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         panelAnnadir.add(jLabel5, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 200;
         panelAnnadir.add(tfNombre, gridBagConstraints);
@@ -115,7 +180,7 @@ public class VentanaModificar extends javax.swing.JFrame {
         jLabel6.setText("Fecha: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         panelAnnadir.add(jLabel6, gridBagConstraints);
 
@@ -126,7 +191,7 @@ public class VentanaModificar extends javax.swing.JFrame {
         }
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 200;
         panelAnnadir.add(tfFecha, gridBagConstraints);
@@ -134,7 +199,7 @@ public class VentanaModificar extends javax.swing.JFrame {
         jLabel7.setText("Hora de Inicio: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         panelAnnadir.add(jLabel7, gridBagConstraints);
 
@@ -145,7 +210,7 @@ public class VentanaModificar extends javax.swing.JFrame {
         }
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 200;
         panelAnnadir.add(tfHoraInicio, gridBagConstraints);
@@ -153,7 +218,7 @@ public class VentanaModificar extends javax.swing.JFrame {
         jLabel8.setText("Hora de Finalización: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         panelAnnadir.add(jLabel8, gridBagConstraints);
 
@@ -164,7 +229,7 @@ public class VentanaModificar extends javax.swing.JFrame {
         }
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 200;
         panelAnnadir.add(tfHoraFin, gridBagConstraints);
@@ -172,12 +237,12 @@ public class VentanaModificar extends javax.swing.JFrame {
         jLabel9.setText("Lugar: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         panelAnnadir.add(jLabel9, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 200;
         panelAnnadir.add(tfLugar, gridBagConstraints);
@@ -185,11 +250,16 @@ public class VentanaModificar extends javax.swing.JFrame {
         jLabel10.setText("Numero de personas: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         panelAnnadir.add(jLabel10, gridBagConstraints);
 
         bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
         jPanel4.add(bAceptar);
 
         bCancelar.setText("Cancelar");
@@ -202,7 +272,7 @@ public class VentanaModificar extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         panelAnnadir.add(jPanel4, gridBagConstraints);
@@ -214,20 +284,15 @@ public class VentanaModificar extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         panelAnnadir.add(tfNumeroPersonas, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        jPanel1.add(panelAnnadir, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 3;
-        getContentPane().add(jPanel1, gridBagConstraints);
+        jPanel3.add(panelAnnadir, gridBagConstraints);
 
         miBorrar.setText("Eventos");
 
@@ -246,6 +311,14 @@ public class VentanaModificar extends javax.swing.JFrame {
             }
         });
         miBorrar.add(miBorrarEvento);
+
+        miEditar.setText("Modificar Evento");
+        miEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miEditarActionPerformed(evt);
+            }
+        });
+        miBorrar.add(miEditar);
 
         jMenuBar1.add(miBorrar);
 
@@ -271,23 +344,29 @@ public class VentanaModificar extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try{
-            ArrayList<String> listaNombres = Controlador.pedirNombresEventos();
-            for(int x=0; x<listaNombres.size();x++)
-            {
-                cbNombresEventos.addItem(listaNombres.get(x));
-            }
-            
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getClass() +"\n" + e.getMessage());
-        }
-    }//GEN-LAST:event_formWindowOpened
 
     private void miAnnadirEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAnnadirEventoActionPerformed
         Controlador.irVentanaAnnadir(this);
@@ -330,6 +409,39 @@ public class VentanaModificar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbNombresEventosActionPerformed
 
+    private void bAnnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnadirActionPerformed
+        miAnnadirEvento.doClick();
+    }//GEN-LAST:event_bAnnadirActionPerformed
+
+    private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
+        miBorrarEvento.doClick();
+    }//GEN-LAST:event_bBorrarActionPerformed
+
+    private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
+        
+    }//GEN-LAST:event_bEditarActionPerformed
+
+    private void miEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEditarActionPerformed
+        
+    }//GEN-LAST:event_miEditarActionPerformed
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        try
+        {
+            Controlador.editarEvento(cbNombresEventos.getSelectedItem().toString(), tfNombre.getText(), tfFecha.getText(), tfHoraInicio.getText(), tfHoraFin.getText(), tfLugar.getText(), tfNumeroPersonas.getText());
+        }
+        catch(com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e)
+        {
+            JOptionPane.showMessageDialog(this, "Problemas conla base de datos, podria ser que la clave primaria esté repetida");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass());
+            System.out.println(e.getCause());
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_bAceptarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -367,11 +479,16 @@ public class VentanaModificar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
+    private javax.swing.JButton bAnnadir;
+    private javax.swing.JButton bBorrar;
     private javax.swing.JButton bCancelar;
+    private javax.swing.JButton bEditar;
     private javax.swing.JComboBox<String> cbNombresEventos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -380,11 +497,14 @@ public class VentanaModificar extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem miAnnadirEvento;
     private javax.swing.JMenuItem miBienvenida;
     private javax.swing.JMenu miBorrar;
     private javax.swing.JMenuItem miBorrarEvento;
+    private javax.swing.JMenuItem miEditar;
     private javax.swing.JMenuItem miSalir;
     private javax.swing.JPanel panelAnnadir;
     private javax.swing.JFormattedTextField tfFecha;

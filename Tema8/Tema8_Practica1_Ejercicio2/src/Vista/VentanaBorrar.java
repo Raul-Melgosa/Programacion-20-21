@@ -30,6 +30,12 @@ public class VentanaBorrar extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jToolBar1 = new javax.swing.JToolBar();
+        bAnnadir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        bBorrar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        bEditar = new javax.swing.JButton();
         panelBorrar = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -37,34 +43,79 @@ public class VentanaBorrar extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         bAceptarBorrar = new javax.swing.JButton();
         bCancelarBorrar = new javax.swing.JButton();
-        jToolBar1 = new javax.swing.JToolBar();
-        bAnnadir = new javax.swing.JButton();
-        bBorrar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         miBorrar = new javax.swing.JMenu();
         miAnnadirEvento = new javax.swing.JMenuItem();
         miBorrarEvento = new javax.swing.JMenuItem();
+        miEditar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         miSalir = new javax.swing.JMenuItem();
         miBienvenida = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.FlowLayout());
 
-        panelBorrar.setLayout(new java.awt.GridBagLayout());
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        bAnnadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aceptar.png"))); // NOI18N
+        bAnnadir.setBorder(null);
+        bAnnadir.setFocusable(false);
+        bAnnadir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bAnnadir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bAnnadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAnnadirActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(bAnnadir);
+
+        jLabel1.setText("   ");
+        jToolBar1.add(jLabel1);
+
+        bBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/borrar.png"))); // NOI18N
+        bBorrar.setBorder(null);
+        bBorrar.setFocusable(false);
+        bBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bBorrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBorrarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(bBorrar);
+
+        jLabel2.setText("   ");
+        jToolBar1.add(jLabel2);
+
+        bEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
+        bEditar.setBorder(null);
+        bEditar.setFocusable(false);
+        bEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(bEditar);
+
+        java.awt.GridBagLayout panelBorrarLayout = new java.awt.GridBagLayout();
+        panelBorrarLayout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0};
+        panelBorrarLayout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0};
+        panelBorrar.setLayout(panelBorrarLayout);
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel9.setText("Borrar un Evento");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
         panelBorrar.add(jLabel9, gridBagConstraints);
 
         jLabel10.setText("Nombre: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         panelBorrar.add(jLabel10, gridBagConstraints);
 
@@ -74,8 +125,8 @@ public class VentanaBorrar extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 200;
         panelBorrar.add(tfNombre, gridBagConstraints);
@@ -97,45 +148,11 @@ public class VentanaBorrar extends javax.swing.JFrame {
         jPanel2.add(bCancelarBorrar);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         panelBorrar.add(jPanel2, gridBagConstraints);
-
-        jToolBar1.setFloatable(false);
-        jToolBar1.setRollover(true);
-
-        bAnnadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sumar.png"))); // NOI18N
-        bAnnadir.setFocusable(false);
-        bAnnadir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bAnnadir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        bAnnadir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAnnadirActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(bAnnadir);
-
-        bBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/borrar.png"))); // NOI18N
-        bBorrar.setFocusable(false);
-        bBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bBorrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        bBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bBorrarActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(bBorrar);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        panelBorrar.add(jToolBar1, gridBagConstraints);
-
-        getContentPane().add(panelBorrar);
 
         miBorrar.setText("Eventos");
 
@@ -154,6 +171,14 @@ public class VentanaBorrar extends javax.swing.JFrame {
             }
         });
         miBorrar.add(miBorrarEvento);
+
+        miEditar.setText("Modificar Evento");
+        miEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miEditarActionPerformed(evt);
+            }
+        });
+        miBorrar.add(miEditar);
 
         jMenuBar1.add(miBorrar);
 
@@ -178,6 +203,21 @@ public class VentanaBorrar extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -226,6 +266,14 @@ public class VentanaBorrar extends javax.swing.JFrame {
         bAceptarBorrar.doClick();
     }//GEN-LAST:event_tfNombreActionPerformed
 
+    private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
+        miEditar.doClick();
+    }//GEN-LAST:event_bEditarActionPerformed
+
+    private void miEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEditarActionPerformed
+        Controlador.irVentanaModificar(this);
+    }//GEN-LAST:event_miEditarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -266,7 +314,10 @@ public class VentanaBorrar extends javax.swing.JFrame {
     private javax.swing.JButton bAnnadir;
     private javax.swing.JButton bBorrar;
     private javax.swing.JButton bCancelarBorrar;
+    private javax.swing.JButton bEditar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -276,6 +327,7 @@ public class VentanaBorrar extends javax.swing.JFrame {
     private javax.swing.JMenuItem miBienvenida;
     private javax.swing.JMenu miBorrar;
     private javax.swing.JMenuItem miBorrarEvento;
+    private javax.swing.JMenuItem miEditar;
     private javax.swing.JMenuItem miSalir;
     private javax.swing.JPanel panelBorrar;
     private javax.swing.JTextField tfNombre;

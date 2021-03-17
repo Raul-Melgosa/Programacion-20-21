@@ -7,6 +7,7 @@ package ModeloUML;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +20,8 @@ public class Evento {
     private LocalTime horaFin;
     private String lugar;
     private int numeroPersonas;
+    private ArrayList<Persona> listaAsistentes;
+
 
     public Evento(String nombre, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin, String lugar, int numeroPersonas) {
         this.nombre = nombre;
@@ -80,5 +83,25 @@ public class Evento {
         this.numeroPersonas = numeroPersonas;
     }
     
+    public ArrayList<Persona> getListaAsistentes() {
+        return listaAsistentes;
+    }
+
+    public void setListaAsistentes(ArrayList<Persona> listaAsistentes) {
+        this.listaAsistentes = listaAsistentes;
+    }
+    
+    public boolean agregarAsistente(Persona p)
+    {
+        if(this.numeroPersonas<this.listaAsistentes.size())
+        {
+            this.listaAsistentes.add(p);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
 }

@@ -10,6 +10,7 @@ import ModeloUML.Evento;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -42,9 +43,40 @@ public class TablaEventos {
         }
     }
     
+    private static Date convertirFecha(LocalDate entrada)
+    { 
+        return Date.valueOf(entrada);
+    }
+    
+    public static Time convertirHora(LocalTime hora)
+    {
+        return Time.valueOf(hora);
+    }
+    
+    public void editarEvento(String nombreAnterior, Evento e) throws Exception
+    {
+        String plantilla = "update eventos set nombre=?,fecha=?,horaInicio=?,horaFin=?,lugar=?,numeropersonas=? where nombre = ?";
+        
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        
+        ps.setString(1, e.getNombre());
+        ps.setDate(2, convertirFecha(e.getFecha()));
+        ps.setTime(3, convertirHora(e.getHoraInicio()));
+        ps.setTime(4, convertirHora(e.getHoraFin()));
+        ps.setString(5, e.getLugar());
+        ps.setInt(6, e.getNumeroPersonas());
+        ps.setString(7, nombreAnterior);
+        int filas = ps.executeUpdate(plantilla);
+        if(filas!=1)
+        {
+            System.out.println("Excepcion base datos en TABLAEVENTOS");
+            throw new InsertFallida();
+        }
+    }
+    
     public void eliminarEvento(String nombre) throws Exception
     {
-        String plantilla = "DELETE FROM eventos WHERE UPPER(Nombre) = ?";
+        String plantilla = "DELETE FROM eventos WHERE UPPER(Nombre) = ?;";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ps.setString(1, nombre);
         int filas = ps.executeUpdate();
@@ -56,7 +88,7 @@ public class TablaEventos {
     
     public ArrayList<String> getNombres() throws Exception
     {
-        String plantilla = "SELECT nombre FROM eventos";
+        String plantilla = "SELECT nombre FROM eventos;";
         PreparedStatement ps = con.prepareStatement(plantilla);
         ResultSet rs = ps.executeQuery();
         ArrayList<String> devolver = new ArrayList();

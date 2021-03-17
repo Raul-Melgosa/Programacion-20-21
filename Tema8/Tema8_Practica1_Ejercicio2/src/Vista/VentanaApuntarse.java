@@ -5,19 +5,18 @@
  */
 package Vista;
 
-import javax.swing.JOptionPane;
 import tema8_practica1_ejercicio2.Controlador;
 
 /**
  *
  * @author 1GDAW09
  */
-public class VentanaAnnadir extends javax.swing.JFrame {
+public class VentanaApuntarse extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaAnnadir
+     * Creates new form AnnadirPersona
      */
-    public VentanaAnnadir() {
+    public VentanaApuntarse() {
         initComponents();
     }
 
@@ -37,28 +36,34 @@ public class VentanaAnnadir extends javax.swing.JFrame {
         bBorrar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         bEditar = new javax.swing.JButton();
-        panelAnnadir = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        bApuntarse = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        tfNombre = new javax.swing.JTextField();
+        tfDni = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
-        tfFecha = new javax.swing.JFormattedTextField();
+        tfNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        tfHoraInicio = new javax.swing.JFormattedTextField();
+        tfApellidos = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        tfHoraFin = new javax.swing.JFormattedTextField();
+        tfNumeroTelefono = new javax.swing.JFormattedTextField();
+        jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        tfLugar = new javax.swing.JTextField();
+        tfNif = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
+        tfNombreEmpresa = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        bAceptar = new javax.swing.JButton();
-        bCancelar = new javax.swing.JButton();
-        tfNumeroPersonas = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         miBorrar = new javax.swing.JMenu();
         miAnnadirEvento = new javax.swing.JMenuItem();
         miBorrarEvento = new javax.swing.JMenuItem();
         miEditar = new javax.swing.JMenuItem();
+        miInscripciones = new javax.swing.JMenu();
+        miApuntarse = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         miSalir = new javax.swing.JMenuItem();
         miBienvenida = new javax.swing.JMenuItem();
@@ -110,142 +115,179 @@ public class VentanaAnnadir extends javax.swing.JFrame {
         });
         jToolBar1.add(bEditar);
 
-        panelAnnadir.setLayout(new java.awt.GridBagLayout());
+        jLabel2.setText("   ");
+        jToolBar1.add(jLabel2);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Añadir un evento");
+        bApuntarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-up.png"))); // NOI18N
+        bApuntarse.setBorder(null);
+        bApuntarse.setFocusable(false);
+        bApuntarse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bApuntarse.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(bApuntarse);
+
+        jScrollPane1.setBorder(null);
+
+        java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
+        jPanel1Layout.columnWidths = new int[] {0};
+        jPanel1Layout.rowHeights = new int[] {0, 15, 0, 15, 0};
+        jPanel1.setLayout(jPanel1Layout);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de la persona asistente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 255))); // NOI18N
+        java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
+        jPanel2Layout.columnWidths = new int[] {0, 15, 0, 15, 0, 15, 0};
+        jPanel2Layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0};
+        jPanel2.setLayout(jPanel2Layout);
+
+        jLabel3.setText("Dni:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        panelAnnadir.add(jLabel2, gridBagConstraints);
+        jPanel2.add(jLabel3, gridBagConstraints);
 
-        jLabel3.setText("Nombre: ");
+        tfDni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        try {
+            tfDni.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDniActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 100;
+        jPanel2.add(tfDni, gridBagConstraints);
+
+        jLabel4.setText("Nombre:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        panelAnnadir.add(jLabel3, gridBagConstraints);
+        jPanel2.add(jLabel4, gridBagConstraints);
+
+        tfNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tfNombre.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 200;
-        panelAnnadir.add(tfNombre, gridBagConstraints);
+        gridBagConstraints.ipadx = 100;
+        jPanel2.add(tfNombre, gridBagConstraints);
 
-        jLabel4.setText("Fecha: ");
+        jLabel5.setText("Apellidos:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        panelAnnadir.add(jLabel4, gridBagConstraints);
+        jPanel2.add(jLabel5, gridBagConstraints);
 
-        try {
-            tfFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        tfApellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tfApellidos.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 200;
-        panelAnnadir.add(tfFecha, gridBagConstraints);
+        gridBagConstraints.ipadx = 100;
+        jPanel2.add(tfApellidos, gridBagConstraints);
 
-        jLabel5.setText("Hora de Inicio: ");
+        jLabel6.setText("Número de teléfono: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        panelAnnadir.add(jLabel5, gridBagConstraints);
+        jPanel2.add(jLabel6, gridBagConstraints);
 
+        tfNumeroTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
-            tfHoraInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+            tfNumeroTelefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfNumeroTelefono.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 200;
-        panelAnnadir.add(tfHoraInicio, gridBagConstraints);
+        gridBagConstraints.ipadx = 100;
+        jPanel2.add(tfNumeroTelefono, gridBagConstraints);
 
-        jLabel6.setText("Hora de Finalización: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jPanel2, gridBagConstraints);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de la Empresa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 204))); // NOI18N
+        java.awt.GridBagLayout jPanel3Layout = new java.awt.GridBagLayout();
+        jPanel3Layout.columnWidths = new int[] {0, 15, 0, 15, 0, 15, 0};
+        jPanel3Layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0};
+        jPanel3.setLayout(jPanel3Layout);
+
+        jLabel7.setText("NIF: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        panelAnnadir.add(jLabel6, gridBagConstraints);
+        gridBagConstraints.gridy = 2;
+        jPanel3.add(jLabel7, gridBagConstraints);
 
+        tfNif.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
-            tfHoraFin.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+            tfNif.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfNif.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 200;
-        panelAnnadir.add(tfHoraFin, gridBagConstraints);
+        gridBagConstraints.ipadx = 100;
+        jPanel3.add(tfNif, gridBagConstraints);
 
-        jLabel7.setText("Lugar: ");
+        jLabel8.setText("Nombre:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        panelAnnadir.add(jLabel7, gridBagConstraints);
+        gridBagConstraints.gridy = 4;
+        jPanel3.add(jLabel8, gridBagConstraints);
+
+        tfNombreEmpresa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tfNombreEmpresa.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 200;
-        panelAnnadir.add(tfLugar, gridBagConstraints);
-
-        jLabel8.setText("Numero de personas: ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        panelAnnadir.add(jLabel8, gridBagConstraints);
-
-        bAceptar.setText("Aceptar");
-        bAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAceptarActionPerformed(evt);
-            }
-        });
-        jPanel4.add(bAceptar);
-
-        bCancelar.setText("Cancelar");
-        bCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bCancelarActionPerformed(evt);
-            }
-        });
-        jPanel4.add(bCancelar);
+        gridBagConstraints.ipadx = 100;
+        jPanel3.add(tfNombreEmpresa, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        panelAnnadir.add(jPanel4, gridBagConstraints);
+        jPanel1.add(jPanel3, gridBagConstraints);
 
-        tfNumeroPersonas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNumeroPersonasActionPerformed(evt);
-            }
-        });
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        jButton1.setText("Aceptar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel4.add(jButton1, gridBagConstraints);
+
+        jButton2.setText("Cancelar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel4.add(jButton2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        panelAnnadir.add(tfNumeroPersonas, gridBagConstraints);
+        jPanel1.add(jPanel4, gridBagConstraints);
+
+        jScrollPane1.setViewportView(jPanel1);
 
         miBorrar.setText("Eventos");
 
@@ -275,6 +317,18 @@ public class VentanaAnnadir extends javax.swing.JFrame {
 
         jMenuBar1.add(miBorrar);
 
+        miInscripciones.setText("Inscripciones");
+
+        miApuntarse.setText("Apuntarse a un evento");
+        miApuntarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miApuntarseActionPerformed(evt);
+            }
+        });
+        miInscripciones.add(miApuntarse);
+
+        jMenuBar1.add(miInscripciones);
+
         jMenu2.setText("Salir");
 
         miSalir.setText("Salir");
@@ -301,73 +355,19 @@ public class VentanaAnnadir extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelAnnadir, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelAnnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        try
-        {
-            Controlador.insertarEvento(tfNombre.getText(),tfFecha.getText(),tfHoraInicio.getText(),tfHoraFin.getText(),tfLugar.getText(),tfNumeroPersonas.getText());
-            tfNombre.setText("");
-            tfFecha.setText("");
-            tfHoraInicio.setText("");
-            tfHoraFin.setText("");
-            tfLugar.setText("");
-            tfNumeroPersonas.setText("");
-        }
-        catch(com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e)
-        {
-            JOptionPane.showMessageDialog(this, "Problemas conla base de datos, podria ser que la clave primaria esté repetida");
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getClass());
-            System.out.println(e.getCause());
-            System.out.println(e.getMessage());
-        }
-    }//GEN-LAST:event_bAceptarActionPerformed
-
-    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
-        miBienvenida.doClick();
-        tfNombre.setText("");
-        tfFecha.setText("");
-        tfHoraInicio.setText("");
-        tfHoraFin.setText("");
-        tfLugar.setText("");
-        tfNumeroPersonas.setText("");
-    }//GEN-LAST:event_bCancelarActionPerformed
-
-    private void miAnnadirEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAnnadirEventoActionPerformed
-        
-    }//GEN-LAST:event_miAnnadirEventoActionPerformed
-
-    private void miBorrarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBorrarEventoActionPerformed
-        Controlador.irVentanaBorrar(this);
-    }//GEN-LAST:event_miBorrarEventoActionPerformed
-
-    private void miSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSalirActionPerformed
-        Controlador.salir();
-    }//GEN-LAST:event_miSalirActionPerformed
-
-    private void miBienvenidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBienvenidaActionPerformed
-        Controlador.irVentanaBienvenida(this);
-    }//GEN-LAST:event_miBienvenidaActionPerformed
-
-    private void tfNumeroPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNumeroPersonasActionPerformed
-        bAceptar.doClick();
-    }//GEN-LAST:event_tfNumeroPersonasActionPerformed
 
     private void bAnnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnnadirActionPerformed
         miAnnadirEvento.doClick();
@@ -377,13 +377,47 @@ public class VentanaAnnadir extends javax.swing.JFrame {
         miBorrarEvento.doClick();
     }//GEN-LAST:event_bBorrarActionPerformed
 
+    private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
+        miEditar.doClick();
+    }//GEN-LAST:event_bEditarActionPerformed
+
+    private void miAnnadirEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAnnadirEventoActionPerformed
+
+    }//GEN-LAST:event_miAnnadirEventoActionPerformed
+
+    private void miBorrarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBorrarEventoActionPerformed
+        Controlador.irVentanaBorrar(this);
+    }//GEN-LAST:event_miBorrarEventoActionPerformed
+
     private void miEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEditarActionPerformed
         Controlador.irVentanaModificar(this);
     }//GEN-LAST:event_miEditarActionPerformed
 
-    private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
-        miEditar.doClick();
-    }//GEN-LAST:event_bEditarActionPerformed
+    private void miSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSalirActionPerformed
+        Controlador.salir();
+    }//GEN-LAST:event_miSalirActionPerformed
+
+    private void miBienvenidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBienvenidaActionPerformed
+        Controlador.irVentanaBienvenida(this);
+    }//GEN-LAST:event_miBienvenidaActionPerformed
+
+    private void miApuntarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miApuntarseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miApuntarseActionPerformed
+
+    private void tfDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDniActionPerformed
+        try
+        {
+            if(Controlador.buscarPersona(tfDni.getText()) != null)
+            {
+                
+            }
+        }
+        catch(Exception e)
+        {
+            
+        }
+    }//GEN-LAST:event_tfDniActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,30 +436,34 @@ public class VentanaAnnadir extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaAnnadir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaApuntarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaAnnadir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaApuntarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaAnnadir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaApuntarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaAnnadir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaApuntarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAnnadir().setVisible(true);
+                new VentanaApuntarse().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bAceptar;
     private javax.swing.JButton bAnnadir;
+    private javax.swing.JButton bApuntarse;
     private javax.swing.JButton bBorrar;
-    private javax.swing.JButton bCancelar;
     private javax.swing.JButton bEditar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -437,20 +475,25 @@ public class VentanaAnnadir extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem miAnnadirEvento;
+    private javax.swing.JMenuItem miApuntarse;
     private javax.swing.JMenuItem miBienvenida;
     private javax.swing.JMenu miBorrar;
     private javax.swing.JMenuItem miBorrarEvento;
     private javax.swing.JMenuItem miEditar;
+    private javax.swing.JMenu miInscripciones;
     private javax.swing.JMenuItem miSalir;
-    private javax.swing.JPanel panelAnnadir;
-    private javax.swing.JFormattedTextField tfFecha;
-    private javax.swing.JFormattedTextField tfHoraFin;
-    private javax.swing.JFormattedTextField tfHoraInicio;
-    private javax.swing.JTextField tfLugar;
+    private javax.swing.JTextField tfApellidos;
+    private javax.swing.JFormattedTextField tfDni;
+    private javax.swing.JFormattedTextField tfNif;
     private javax.swing.JTextField tfNombre;
-    private javax.swing.JTextField tfNumeroPersonas;
+    private javax.swing.JTextField tfNombreEmpresa;
+    private javax.swing.JFormattedTextField tfNumeroTelefono;
     // End of variables declaration//GEN-END:variables
 }

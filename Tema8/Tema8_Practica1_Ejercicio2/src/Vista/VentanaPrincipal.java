@@ -27,29 +27,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jToolBar1 = new javax.swing.JToolBar();
         bAnnadir = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         bBorrar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        bEditar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panelBienvenida = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         miBorrar = new javax.swing.JMenu();
         miAnnadirEvento = new javax.swing.JMenuItem();
         miBorrarEvento = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        miEditar = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        miApuntarse = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         miSalir = new javax.swing.JMenuItem();
         miBienvenida = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        bAnnadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sumar.png"))); // NOI18N
+        bAnnadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aceptar.png"))); // NOI18N
         bAnnadir.setBorder(null);
         bAnnadir.setFocusable(false);
         bAnnadir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -60,6 +65,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(bAnnadir);
+
+        jLabel3.setText("   ");
+        jToolBar1.add(jLabel3);
 
         bBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/borrar.png"))); // NOI18N
         bBorrar.setBorder(null);
@@ -73,12 +81,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         jToolBar1.add(bBorrar);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        getContentPane().add(jToolBar1, gridBagConstraints);
+        jLabel2.setText("   ");
+        jToolBar1.add(jLabel2);
+
+        bEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
+        bEditar.setBorder(null);
+        bEditar.setFocusable(false);
+        bEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(bEditar);
+
+        jLabel4.setText("   ");
+        jToolBar1.add(jLabel4);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-up.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1);
 
         panelBienvenida.setPreferredSize(new java.awt.Dimension(300, 300));
         panelBienvenida.setLayout(new java.awt.GridBagLayout());
@@ -86,12 +117,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Bienvenido");
         panelBienvenida.add(jLabel1, new java.awt.GridBagConstraints());
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        getContentPane().add(panelBienvenida, gridBagConstraints);
 
         miBorrar.setText("Eventos");
 
@@ -111,15 +136,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         miBorrar.add(miBorrarEvento);
 
-        jMenuItem1.setText("Modificar evento");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        miEditar.setText("Modificar evento");
+        miEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                miEditarActionPerformed(evt);
             }
         });
-        miBorrar.add(jMenuItem1);
+        miBorrar.add(miEditar);
 
         jMenuBar1.add(miBorrar);
+
+        jMenu1.setText("Inscripciones");
+
+        miApuntarse.setText("Apuntarse");
+        miApuntarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miApuntarseActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miApuntarse);
+
+        jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
 
@@ -142,6 +179,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -170,9 +223,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         miBorrarEvento.doClick();
     }//GEN-LAST:event_bBorrarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void miEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEditarActionPerformed
         Controlador.irVentanaModificar(this);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_miEditarActionPerformed
+
+    private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
+        miEditar.doClick();
+    }//GEN-LAST:event_bEditarActionPerformed
+
+    private void miApuntarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miApuntarseActionPerformed
+        Controlador.irVentanaApuntarse(this);
+    }//GEN-LAST:event_miApuntarseActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        miApuntarse.doClick();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,15 +277,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAnnadir;
     private javax.swing.JButton bBorrar;
+    private javax.swing.JButton bEditar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem miAnnadirEvento;
+    private javax.swing.JMenuItem miApuntarse;
     private javax.swing.JMenuItem miBienvenida;
     private javax.swing.JMenu miBorrar;
     private javax.swing.JMenuItem miBorrarEvento;
+    private javax.swing.JMenuItem miEditar;
     private javax.swing.JMenuItem miSalir;
     private javax.swing.JPanel panelBienvenida;
     // End of variables declaration//GEN-END:variables

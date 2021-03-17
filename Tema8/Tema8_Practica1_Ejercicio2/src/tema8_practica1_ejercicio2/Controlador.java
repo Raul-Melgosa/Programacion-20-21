@@ -25,6 +25,7 @@ public class Controlador {
     
     private static BaseDeDatos bd = new BaseDeDatos();
     private static TablaEventos te = new TablaEventos();
+    private static TablaPersonas tp = new TablaPersonas();
     
     public static void main(String[] args) {
         VentanaPrincipal v1 = new VentanaPrincipal();
@@ -55,6 +56,29 @@ public class Controlador {
         ArrayList<String> nombres = te.getNombres();
         bd.desconectar();
         return nombres;
+    }
+    
+    public static ArrayList<String> buscarPersona(String dni) throws Exception
+    {
+        bd.conectar();
+        tp.setCon(bd.getC());
+        Persona p=tp.buscarUnica(dni);
+        ArrayList<String> devolver;
+        if(p!=null)
+        {
+            devolver = new ArrayList();
+            devolver.add(p.getDni());
+            devolver.add(p.getNombre());
+            devolver.add(p.getApellidos());
+            devolver.add(p.getTelefono());
+        }
+        else
+        {
+            devolver=null;
+        }
+        bd.desconectar();
+        
+        return devolver;
     }
     
     public static ArrayList<String> consultarDatosEvento(String nombre) throws Exception
@@ -95,6 +119,14 @@ public class Controlador {
         return nombres;
     }
     
+    public static void editarEvento(String nombreAnterior, String nombre, String fecha, String horaInicio, String horaFin, String lugar, String numeroPersonas) throws Exception
+    {
+        bd.conectar();
+        te.setCon(bd.getC());
+        te.editarEvento(nombreAnterior, new Evento(nombre, LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy")), LocalTime.parse(horaInicio), LocalTime.parse(horaFin), lugar, Integer.parseInt(numeroPersonas)));
+        bd.desconectar();
+    }
+    
     public static void irVentanaAnnadir(javax.swing.JFrame antiguo)
     {
         antiguo.dispose();
@@ -123,6 +155,14 @@ public class Controlador {
     {
         antiguo.dispose();
         VentanaPrincipal nuevo = new VentanaPrincipal();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);
+    }
+    
+    public static void irVentanaApuntarse(javax.swing.JFrame antiguo)
+    {
+        antiguo.dispose();
+        VentanaApuntarse nuevo = new VentanaApuntarse();
         nuevo.setLocationRelativeTo(null);
         nuevo.setVisible(true);
     }
