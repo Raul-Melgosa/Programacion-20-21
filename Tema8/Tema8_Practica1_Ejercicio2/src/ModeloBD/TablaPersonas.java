@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import tema8_practica1_ejercicio2.Controlador;
 
 /**
  *
@@ -32,9 +33,9 @@ public class TablaPersonas {
         PreparedStatement ps=con.prepareStatement(plantilla);
         ps.setString(1, p.getDni());
         ps.setString(2, p.getNombre());
-        ps.setString(2, p.getApellidos());
-        ps.setString(2, p.getTelefono());
-        ps.setString(2, p.getE().getNif());
+        ps.setString(3, p.getApellidos());
+        ps.setString(4, p.getTelefono());
+        ps.setString(5, p.getE().getNif());
         
         int filas = ps.executeUpdate();
         
@@ -58,6 +59,7 @@ public class TablaPersonas {
             p.setNombre(resultado.getString("nombre"));
             p.setApellidos(resultado.getString("apellidos"));
             p.setTelefono(resultado.getString("telefono"));
+            //p.setE(Controlador.buscarEmpresa(resultado.getString("nif")));
             return p;
         }
         else

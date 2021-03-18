@@ -26,6 +26,7 @@ public class Controlador {
     private static BaseDeDatos bd = new BaseDeDatos();
     private static TablaEventos te = new TablaEventos();
     private static TablaPersonas tp = new TablaPersonas();
+    private static TablaEmpresas tEmp = new TablaEmpresas();
     
     public static void main(String[] args) {
         VentanaPrincipal v1 = new VentanaPrincipal();
@@ -39,6 +40,21 @@ public class Controlador {
         te.setCon(bd.getC());
         te.insertarEvento(new Evento(nombre, LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy")), LocalTime.parse(horaInicio), LocalTime.parse(horaFin), lugar, Integer.parseInt(numeroPersonas)));
         bd.desconectar();
+    }
+    
+    public static void insertarPersona (String dni, String nombre, String apellidos, String numeroTelefono, String nombreEmpresa, String nif) throws Exception
+    {
+        bd.conectar();
+        tp.setCon(bd.getC());
+        tEmp.setCon(bd.getC());
+        tEmp.insertarEmpresa(new Empresa(nombreEmpresa,nif));
+        tp.insertarPersona(new Persona(nombre,apellidos,dni,numeroTelefono,new Empresa(nombreEmpresa,nif)));
+        bd.desconectar();
+    }
+    
+    public static void agregarAsistente(String dni, String evento) throws Exception
+    {
+        
     }
     
     public static void borrarEvento (String nombre) throws Exception
@@ -58,6 +74,15 @@ public class Controlador {
         return nombres;
     }
     
+    public static Empresa buscarEmpresa(String nif) throws Exception
+    {
+        bd.conectar();
+        tEmp.setCon(bd.getC());
+        Empresa e = tEmp.buscarEmpresa(nif);
+        bd.desconectar();
+        return e;
+    }
+    
     public static ArrayList<String> buscarPersona(String dni) throws Exception
     {
         bd.conectar();
@@ -71,6 +96,8 @@ public class Controlador {
             devolver.add(p.getNombre());
             devolver.add(p.getApellidos());
             devolver.add(p.getTelefono());
+            devolver.add(p.getE().getNif());
+            devolver.add(p.getE().getNombre());
         }
         else
         {

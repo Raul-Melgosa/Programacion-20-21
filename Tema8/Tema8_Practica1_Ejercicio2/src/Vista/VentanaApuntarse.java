@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import java.util.ArrayList;
 import tema8_practica1_ejercicio2.Controlador;
 
 /**
@@ -18,6 +19,18 @@ public class VentanaApuntarse extends javax.swing.JFrame {
      */
     public VentanaApuntarse() {
         initComponents();
+        try{
+            ArrayList<String> listaNombres = Controlador.pedirNombresEventos();
+            for(int x=0; x<listaNombres.size();x++)
+            {
+                cbNombresEventos.addItem(listaNombres.get(x));
+            }
+            cbNombresEventos.setSelectedIndex(-1);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass() +"\n" + e.getMessage());
+        }
     }
 
     /**
@@ -51,12 +64,14 @@ public class VentanaApuntarse extends javax.swing.JFrame {
         tfNumeroTelefono = new javax.swing.JFormattedTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        tfNif = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
         tfNombreEmpresa = new javax.swing.JTextField();
+        tfNif = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bAceptar = new javax.swing.JButton();
+        bCancelar = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        cbNombresEventos = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         miBorrar = new javax.swing.JMenu();
         miAnnadirEvento = new javax.swing.JMenuItem();
@@ -129,7 +144,7 @@ public class VentanaApuntarse extends javax.swing.JFrame {
 
         java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
         jPanel1Layout.columnWidths = new int[] {0};
-        jPanel1Layout.rowHeights = new int[] {0, 15, 0, 15, 0};
+        jPanel1Layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0};
         jPanel1.setLayout(jPanel1Layout);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de la persona asistente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 255))); // NOI18N
@@ -151,6 +166,11 @@ public class VentanaApuntarse extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfDni.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfDniFocusGained(evt);
+            }
+        });
         tfDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfDniActionPerformed(evt);
@@ -170,8 +190,8 @@ public class VentanaApuntarse extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanel2.add(jLabel4, gridBagConstraints);
 
+        tfNombre.setEditable(false);
         tfNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tfNombre.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
@@ -186,8 +206,8 @@ public class VentanaApuntarse extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanel2.add(jLabel5, gridBagConstraints);
 
+        tfApellidos.setEditable(false);
         tfApellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tfApellidos.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
@@ -202,13 +222,13 @@ public class VentanaApuntarse extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanel2.add(jLabel6, gridBagConstraints);
 
+        tfNumeroTelefono.setEditable(false);
         tfNumeroTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         try {
             tfNumeroTelefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        tfNumeroTelefono.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
@@ -218,11 +238,11 @@ public class VentanaApuntarse extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanel1.add(jPanel2, gridBagConstraints);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de la Empresa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 204))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de la Empresa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 255))); // NOI18N
         java.awt.GridBagLayout jPanel3Layout = new java.awt.GridBagLayout();
         jPanel3Layout.columnWidths = new int[] {0, 15, 0, 15, 0, 15, 0};
         jPanel3Layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0};
@@ -234,28 +254,14 @@ public class VentanaApuntarse extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         jPanel3.add(jLabel7, gridBagConstraints);
 
-        tfNif.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        try {
-            tfNif.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfNif.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 100;
-        jPanel3.add(tfNif, gridBagConstraints);
-
         jLabel8.setText("Nombre:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         jPanel3.add(jLabel8, gridBagConstraints);
 
+        tfNombreEmpresa.setEditable(false);
         tfNombreEmpresa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tfNombreEmpresa.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
@@ -263,29 +269,68 @@ public class VentanaApuntarse extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 100;
         jPanel3.add(tfNombreEmpresa, gridBagConstraints);
 
+        tfNif.setEditable(false);
+        tfNif.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        jPanel1.add(jPanel3, gridBagConstraints);
-
-        jPanel4.setLayout(new java.awt.GridBagLayout());
-
-        jButton1.setText("Aceptar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        jPanel4.add(jButton1, gridBagConstraints);
-
-        jButton2.setText("Cancelar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        jPanel4.add(jButton2, gridBagConstraints);
+        gridBagConstraints.ipadx = 100;
+        jPanel3.add(tfNif, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jPanel3, gridBagConstraints);
+
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel4.add(bAceptar, gridBagConstraints);
+
+        bCancelar.setText("Cancelar");
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel4.add(bCancelar, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanel1.add(jPanel4, gridBagConstraints);
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del evento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 255))); // NOI18N
+        java.awt.GridBagLayout jPanel5Layout = new java.awt.GridBagLayout();
+        jPanel5Layout.columnWidths = new int[] {0};
+        jPanel5Layout.rowHeights = new int[] {0};
+        jPanel5.setLayout(jPanel5Layout);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        jPanel5.add(cbNombresEventos, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jPanel5, gridBagConstraints);
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -405,12 +450,30 @@ public class VentanaApuntarse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_miApuntarseActionPerformed
 
+    ArrayList<String> listaDatos;
+    
     private void tfDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDniActionPerformed
         try
         {
-            if(Controlador.buscarPersona(tfDni.getText()) != null)
+            tfNombre.setText("");
+            tfApellidos.setText("");
+            tfNumeroTelefono.setText("");
+            tfNombreEmpresa.setText("");
+            tfNif.setText("");
+            listaDatos = Controlador.buscarPersona(tfDni.getText());
+            if(listaDatos != null)
             {
-                
+                tfNombre.setText(listaDatos.get(1));
+                tfApellidos.setText(listaDatos.get(2));
+                tfNumeroTelefono.setText(listaDatos.get(3));
+            }
+            else
+            {
+                tfNombre.setEditable(true);
+                tfApellidos.setEditable(true);
+                tfNumeroTelefono.setEditable(true);
+                tfNombreEmpresa.setEditable(true);
+                tfNif.setEditable(true);
             }
         }
         catch(Exception e)
@@ -418,6 +481,33 @@ public class VentanaApuntarse extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_tfDniActionPerformed
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        try{
+            if(listaDatos != null)
+            {
+
+            }
+            else
+            {
+                Controlador.insertarPersona(tfDni.getText(),tfNombre.getText(),tfApellidos.getText(),tfNumeroTelefono.getText(),tfNombreEmpresa.getText(),tfNif.getText());
+                Controlador.agregarAsistente(tfDni.getText(),cbNombresEventos.getSelectedItem().toString());
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass());
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void tfDniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDniFocusGained
+        tfDni.setText("");
+    }//GEN-LAST:event_tfDniFocusGained
+
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+        miBienvenida.doClick();
+    }//GEN-LAST:event_bCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -458,12 +548,13 @@ public class VentanaApuntarse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAceptar;
     private javax.swing.JButton bAnnadir;
     private javax.swing.JButton bApuntarse;
     private javax.swing.JButton bBorrar;
+    private javax.swing.JButton bCancelar;
     private javax.swing.JButton bEditar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> cbNombresEventos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -479,6 +570,7 @@ public class VentanaApuntarse extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem miAnnadirEvento;
@@ -491,7 +583,7 @@ public class VentanaApuntarse extends javax.swing.JFrame {
     private javax.swing.JMenuItem miSalir;
     private javax.swing.JTextField tfApellidos;
     private javax.swing.JFormattedTextField tfDni;
-    private javax.swing.JFormattedTextField tfNif;
+    private javax.swing.JTextField tfNif;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JTextField tfNombreEmpresa;
     private javax.swing.JFormattedTextField tfNumeroTelefono;
