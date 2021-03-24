@@ -8,6 +8,7 @@ package tema8_practica2;
 import ModeloBD.*;
 import ModeloUML.*;
 import Vista.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Controlador {
      * @param args the command line arguments
      */
     private static BaseDeDatos bd = new BaseDeDatos();
+    private static TablaClientes tc = new TablaClientes();
     
     public static void main(String[] args) {
         PantallaPrincipal v1 = new PantallaPrincipal();
@@ -34,43 +36,74 @@ public class Controlador {
         nuevo.setVisible(true);
     }
     
-    public static void irpantallaClientes(String tipo, javax.swing.JFrame anterior)
+    public static void irpantallaAltaClientes(javax.swing.JFrame anterior)
     {
         anterior.dispose();
-        PantallaClientes nuevo;
-        int a=0;
-        int b=0;
-        int c=0;
-        switch(tipo)
-        {
-            case "alta":
-                nuevo=new PantallaClientes();
-                nuevo.setLocationRelativeTo(null);
-                nuevo.setVisible(true);
-                break;
-            case "baja":
-                nuevo=new PantallaClientes(a);
-                nuevo.setLocationRelativeTo(null);
-                nuevo.setVisible(true);
-                break;
-            case "modificacion":
-                nuevo=new PantallaClientes(a,b);
-                nuevo.setLocationRelativeTo(null);
-                nuevo.setVisible(true);
-                break;
-            case "consulta":
-                nuevo=new PantallaClientes(a,b,c);
-                nuevo.setLocationRelativeTo(null);
-                nuevo.setVisible(true);
-                break;
-            default:
-                break;
-        }
-        
+        PantallaAltaClientes nuevo;
+        nuevo=new PantallaAltaClientes();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
+    public static void irpantallaBajaClientes(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaBajaClientes nuevo=new PantallaBajaClientes();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
+    public static void irpantallaModificarClientes(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaModificarClientes nuevo=new PantallaModificarClientes();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
+    public static void irpantallaConsultaClientes(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaConsultaClientes nuevo=new PantallaConsultaClientes();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
     }
     
     public static void salir()
     {
         System.exit(0);
+    }
+    
+    public static void hacerAltaCliente(String dni, String nombre, String apellidos, String direccion, String telefono, String correo) throws Exception
+    {
+        Cliente c=new Cliente(dni, nombre, apellidos, direccion, telefono, correo);
+        tc.altaCliente(bd.conectar(), c);
+        bd.desconectar();
+    }
+
+    public static ArrayList<String> realizarConsultaClienteUnico(String dni) throws Exception
+    {
+        Cliente c = tc.consultaClienteUnico(bd.conectar(), dni);
+        bd.desconectar();
+        ArrayList<String> datos = new ArrayList();
+        datos.add(c.getDni());
+        datos.add(c.getNombre());
+        datos.add(c.getApellidos());
+        datos.add(c.getDireccion());
+        datos.add(c.getTelefono());
+        datos.add(c.getCorreo());
+        return datos;
+    }
+    
+    public static void hacerBajaCliente(String dni) throws Exception
+    {
+        tc.bajaCliente(bd.conectar(), dni);
+        bd.desconectar();
+    }
+
+    public static void modificarCliente(String dni, String nombre, String apellidos, String direccion, String telefono, String correo) throws Exception
+    {
+        Cliente c = new Cliente(dni,nombre,apellidos,direccion,telefono,correo);
+        tc.modificarCliente(bd.conectar(), c);
     }
 }

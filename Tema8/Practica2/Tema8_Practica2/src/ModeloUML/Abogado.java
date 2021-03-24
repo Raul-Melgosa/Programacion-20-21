@@ -16,7 +16,7 @@ public class Abogado {
     private String nombre;
     private String apellidos;
     private String direccion;
-    private ArrayList listaCasos;
+    private ArrayList<Caso> listaCasos;
 
     public Abogado(String dni, String nombre, String apellidos, String direccion) {
         this.dni = dni;
@@ -58,11 +58,15 @@ public class Abogado {
         this.direccion = direccion;
     }
 
-    public ArrayList getListaCasos() {
+    public ArrayList<Caso> getListaCasos() {
         return listaCasos;
     }
 
-    public void setListaCasos(ArrayList listaCasos) {
-        this.listaCasos = listaCasos;
+    public void setListaCasos(Caso c) {
+        if(this.listaCasos==null)
+        {
+            this.listaCasos=new ArrayList();
+        }
+        this.listaCasos.add(c);
     }
 }

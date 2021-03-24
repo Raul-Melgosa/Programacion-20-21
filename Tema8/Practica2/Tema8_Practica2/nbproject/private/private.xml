@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/ModeloUML/Caso.java</file>
             <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/tema8_practica2/Controlador.java</file>
-            <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/ModeloUML/Abogado.java</file>
-            <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/Vista/PantallaClientes.java</file>
+            <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/Vista/PantallaBajaClientes.java</file>
+            <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/Vista/PantallaModificarClientes.java</file>
             <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/ModeloBD/BaseDeDatos.java</file>
             <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/Vista/PantallaPrincipal.java</file>
-            <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/ModeloUML/Juicio.java</file>
+            <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/Vista/PantallaAltaClientes.java</file>
+            <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/ModeloBD/TablaClientes.java</file>
             <file>file:/C:/Users/1GDAW09/Documents/1GSDAW/Programación/Ejercicios%20Java/Tema%208/Practica2/Tema8_Practica2/src/ModeloUML/Cliente.java</file>
         </group>
     </open-files>

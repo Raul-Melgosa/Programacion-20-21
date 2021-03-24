@@ -18,7 +18,12 @@ public class Cliente {
     private String direccion;
     private String telefono;
     private String correo;
-    private ArrayList listaCasos;
+    private ArrayList<Caso> listaCasos;
+    
+    
+    public Cliente(){
+        
+    }
 
     public Cliente(String dni, String nombre, String apellidos, String direccion, String telefono, String correo) {
         this.dni = dni;
@@ -78,11 +83,15 @@ public class Cliente {
         this.correo = correo;
     }
 
-    public ArrayList getListaCasos() {
+    public ArrayList<Caso> getListaCasos() {
         return listaCasos;
     }
 
-    public void setListaCasos(ArrayList listaCasos) {
-        this.listaCasos = listaCasos;
+    public void setListaCasos(Caso c) {
+        if(this.listaCasos==null)
+        {
+            this.listaCasos=new ArrayList();
+        }
+        this.listaCasos.add(c);
     }
 }
