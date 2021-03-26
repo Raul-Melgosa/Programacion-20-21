@@ -5,20 +5,18 @@
  */
 package Vista;
 
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import tema8_practica2.Controlador;
 
 /**
  *
  * @author 1GDAW09
  */
-public class PantallaModificarClientes extends javax.swing.JFrame {
+public class PantallaAltaAbogados extends javax.swing.JFrame {
 
     /**
      * Creates new form PantallaClientes
      */
-    public PantallaModificarClientes() {
+    public PantallaAltaAbogados() {
         initComponents();
     }
     /**
@@ -39,10 +37,6 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
         tfApellidos = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         tfDireccion = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        tfTelefono = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        tfCorreo = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         bAceptar = new javax.swing.JButton();
         bLimpiar = new javax.swing.JButton();
@@ -69,9 +63,10 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(550, 400));
+        setPreferredSize(new java.awt.Dimension(550, 400));
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 15, 0, 15, 0, 15, 0};
-        layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0};
+        layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0};
         getContentPane().setLayout(layout);
 
         jLabel1.setText("Nombre:");
@@ -82,7 +77,6 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
         getContentPane().add(jLabel1, gridBagConstraints);
 
         tfNombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tfNombre.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
@@ -98,11 +92,6 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
         getContentPane().add(jLabel2, gridBagConstraints);
 
         tfDni.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tfDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDniActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
@@ -118,7 +107,6 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
         getContentPane().add(jLabel3, gridBagConstraints);
 
         tfApellidos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tfApellidos.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
@@ -134,45 +122,12 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
         getContentPane().add(jLabel4, gridBagConstraints);
 
         tfDireccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tfDireccion.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 200;
         getContentPane().add(tfDireccion, gridBagConstraints);
-
-        jLabel5.setText("Teléfono:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(jLabel5, gridBagConstraints);
-
-        tfTelefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tfTelefono.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 200;
-        getContentPane().add(tfTelefono, gridBagConstraints);
-
-        jLabel6.setText("Correo electrónico:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(jLabel6, gridBagConstraints);
-
-        tfCorreo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tfCorreo.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 200;
-        getContentPane().add(tfCorreo, gridBagConstraints);
 
         bAceptar.setText("Aceptar");
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -200,14 +155,14 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(jPanel1, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Formulario de modificacion de clientes");
+        jLabel7.setText("Formulario de alta de abogados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -320,26 +275,12 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
         tfNombre.setText("");
         tfApellidos.setText("");
         tfDireccion.setText("");
-        tfTelefono.setText("");
-        tfCorreo.setText("");
     }//GEN-LAST:event_bLimpiarActionPerformed
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         try
         {
-            Controlador.modificarCliente(tfDni.getText(),tfNombre.getText(),tfApellidos.getText(),tfDireccion.getText(),tfTelefono.getText(),tfCorreo.getText());
-            tfNombre.setEnabled(false);
-            tfApellidos.setEnabled(false);
-            tfDireccion.setEnabled(false);
-            tfTelefono.setEnabled(false);
-            tfCorreo.setEnabled(false);
-            tfDni.setEnabled(true);
-            tfNombre.setText("");
-            tfApellidos.setText("");
-            tfDireccion.setText("");
-            tfTelefono.setText("");
-            tfCorreo.setText("");
-            tfDni.setText("");
+            Controlador.hacerAltaAbogado(tfDni.getText(),tfNombre.getText(),tfApellidos.getText(),tfDireccion.getText());
         }
         catch(Exception e)
         {
@@ -350,35 +291,6 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         miVolver.doClick();
     }//GEN-LAST:event_bVolverActionPerformed
-
-    private void tfDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDniActionPerformed
-        try
-        {
-            ArrayList<String> datos = Controlador.realizarConsultaClienteUnico(tfDni.getText());
-            if(datos!= null)
-            {
-                tfDni.setEnabled(false);
-                tfNombre.setEnabled(true);
-                tfApellidos.setEnabled(true);
-                tfDireccion.setEnabled(true);
-                tfTelefono.setEnabled(true);
-                tfCorreo.setEnabled(true);
-                tfNombre.setText(datos.get(1));
-                tfApellidos.setText(datos.get(2));
-                tfDireccion.setText(datos.get(3));
-                tfTelefono.setText(datos.get(4));
-                tfCorreo.setText(datos.get(5)); 
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(this, "No se ha encontrado el cliente con dni " + tfDni.getText());
-            }
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getClass());
-        }
-    }//GEN-LAST:event_tfDniActionPerformed
 
     private void miAltaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaClienteActionPerformed
         Controlador.irpantallaAltaClientes(this);
@@ -429,13 +341,13 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaModificarClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaAltaAbogados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaModificarClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaAltaAbogados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaModificarClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaAltaAbogados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaModificarClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaAltaAbogados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -445,7 +357,7 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaModificarClientes().setVisible(true);
+                new PantallaAltaAbogados().setVisible(true);
             }
         });
     }
@@ -458,8 +370,6 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -481,10 +391,8 @@ public class PantallaModificarClientes extends javax.swing.JFrame {
     private javax.swing.JMenuItem miModificarCliente;
     private javax.swing.JMenuItem miVolver;
     private javax.swing.JTextField tfApellidos;
-    private javax.swing.JTextField tfCorreo;
     private javax.swing.JTextField tfDireccion;
     private javax.swing.JTextField tfDni;
     private javax.swing.JTextField tfNombre;
-    private javax.swing.JTextField tfTelefono;
     // End of variables declaration//GEN-END:variables
 }

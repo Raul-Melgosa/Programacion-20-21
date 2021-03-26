@@ -92,4 +92,41 @@ public class TablaClientes {
             System.out.println("Filas afectadas (al insertar un solo cliente) no es 1");
         }
     }
+    
+    public ArrayList<ArrayList<String>> consultaTodosClientes(Connection conexion) throws Exception
+    {
+        con=conexion;
+        String plantilla = "SELECT * FROM Clientes";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        
+        ResultSet rs = ps.executeQuery();
+        ArrayList<ArrayList<String>> listaTodosClientes = new ArrayList();
+        while(rs.next())
+        {
+            ArrayList<String> c = new ArrayList();
+            
+            c.add(rs.getString("dni"));
+            c.add(rs.getString("nombre"));
+            c.add(rs.getString("apellidos"));
+            c.add(rs.getString("direccion"));
+            c.add(rs.getString("telefono"));
+            c.add(rs.getString("correo"));
+            
+            TablaCasos tc = new TablaCasos();
+            ArrayList<Caso> listaCasos=tc.consultaCasosCliente(con, rs.getString("dni"));
+            for(int x=0;x<listaCasos.size();x++)
+            {
+                c.add(listaCasos.get(x).toString());
+            }
+            listaTodosClientes.add(c);
+        }
+        if(listaTodosClientes.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return listaTodosClientes;
+        }
+    }
 }

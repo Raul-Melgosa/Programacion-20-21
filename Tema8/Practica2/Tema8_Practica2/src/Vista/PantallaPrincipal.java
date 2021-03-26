@@ -54,6 +54,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(550, 400));
         setMinimumSize(new java.awt.Dimension(550, 400));
+        setPreferredSize(new java.awt.Dimension(550, 400));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -116,15 +117,35 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Abogados");
 
         miAltaAbogado.setText("Dar un abogado de alta");
+        miAltaAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miAltaAbogado);
 
         miBajaAbogado.setText("Dar un abogado de baja");
+        miBajaAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miBajaAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miBajaAbogado);
 
         miModificarAbogado.setText("Modificar un abogado");
+        miModificarAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miModificarAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miModificarAbogado);
 
         miConultaAbogado.setText("Consultar abogados");
+        miConultaAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConultaAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miConultaAbogado);
 
         jMenuBar1.add(jMenu2);
@@ -148,11 +169,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu4.setText("Volver");
 
         miVolver.setText("Volver");
-        miVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miVolverActionPerformed(evt);
-            }
-        });
         jMenu4.add(miVolver);
 
         jMenuBar1.add(jMenu4);
@@ -182,9 +198,21 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Controlador.irpantallaConsultaClientes(this);
     }//GEN-LAST:event_miConsultarClienteActionPerformed
 
-    private void miVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVolverActionPerformed
-        Controlador.irPantallaPrincipal(this);
-    }//GEN-LAST:event_miVolverActionPerformed
+    private void miAltaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaAbogadoActionPerformed
+        Controlador.irpantallaAltaAbogados(this);
+    }//GEN-LAST:event_miAltaAbogadoActionPerformed
+
+    private void miBajaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaAbogadoActionPerformed
+        Controlador.irpantallaBajaAbogados(this);
+    }//GEN-LAST:event_miBajaAbogadoActionPerformed
+
+    private void miModificarAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarAbogadoActionPerformed
+        Controlador.irpantallaModificarAbogados(this);
+    }//GEN-LAST:event_miModificarAbogadoActionPerformed
+
+    private void miConultaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConultaAbogadoActionPerformed
+        Controlador.irpantallaConsultaAbogados(this);
+    }//GEN-LAST:event_miConultaAbogadoActionPerformed
 
     /**
      * @param args the command line arguments

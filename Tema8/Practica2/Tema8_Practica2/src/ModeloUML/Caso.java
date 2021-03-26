@@ -5,6 +5,7 @@
  */
 package ModeloUML;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -13,11 +14,21 @@ import java.util.ArrayList;
  */
 public class Caso {
     private String numeroExpediente;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
+    private String estado;
     private Cliente cliente;
     private ArrayList listaAbogados;
+    
+    public Caso(){
+        
+    }
 
-    public Caso(String numeroExpediente, Cliente cliente) {
+    public Caso(String numeroExpediente, LocalDate fechaInicio, LocalDate fechaFin, String estado, Cliente cliente) {
         this.numeroExpediente = numeroExpediente;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.estado = estado;
         this.cliente = cliente;
         this.listaAbogados=new ArrayList();
     }
@@ -28,6 +39,30 @@ public class Caso {
 
     public void setNumeroExpediente(String numeroExpediente) {
         this.numeroExpediente = numeroExpediente;
+    }
+
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public Cliente getCliente() {
@@ -45,6 +80,10 @@ public class Caso {
     public void setListaAbogados(ArrayList listaAbogados) {
         this.listaAbogados = listaAbogados;
     }
-    
+
+    @Override
+    public String toString() {
+        return ""+this.numeroExpediente + "   " + this.estado + "  Inicio: " + this.fechaInicio.toString() + "   Fin: "+this.fechaFin.toString()+"\n";
+    }
     
 }

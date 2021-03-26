@@ -68,6 +68,7 @@ public class PantallaBajaClientes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusCycleRoot(false);
+        setPreferredSize(new java.awt.Dimension(550, 400));
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 15, 0, 15, 0, 15, 0};
         layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0};
@@ -233,15 +234,35 @@ public class PantallaBajaClientes extends javax.swing.JFrame {
         jMenu2.setText("Abogados");
 
         miAltaAbogado.setText("Dar un abogado de alta");
+        miAltaAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miAltaAbogado);
 
         miBajaAbogado.setText("Dar un abogado de baja");
+        miBajaAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miBajaAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miBajaAbogado);
 
         miModificarAbogado.setText("Modificar un abogado");
+        miModificarAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miModificarAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miModificarAbogado);
 
         miConultaAbogado.setText("Consultar abogados");
+        miConultaAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConultaAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miConultaAbogado);
 
         jMenuBar1.add(jMenu2);
@@ -265,11 +286,6 @@ public class PantallaBajaClientes extends javax.swing.JFrame {
         jMenu4.setText("Volver");
 
         miVolver.setText("Volver");
-        miVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miVolverActionPerformed(evt);
-            }
-        });
         jMenu4.add(miVolver);
 
         jMenuBar1.add(jMenu4);
@@ -278,26 +294,6 @@ public class PantallaBajaClientes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void miAltaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaClienteActionPerformed
-        Controlador.irpantallaAltaClientes(this);
-    }//GEN-LAST:event_miAltaClienteActionPerformed
-
-    private void miBajaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaClienteActionPerformed
-        Controlador.irpantallaBajaClientes(this);
-    }//GEN-LAST:event_miBajaClienteActionPerformed
-
-    private void miModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarClienteActionPerformed
-        Controlador.irpantallaModificarClientes(this);
-    }//GEN-LAST:event_miModificarClienteActionPerformed
-
-    private void miConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarClienteActionPerformed
-        Controlador.irpantallaConsultaClientes(this);
-    }//GEN-LAST:event_miConsultarClienteActionPerformed
-
-    private void miVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVolverActionPerformed
-        Controlador.irPantallaPrincipal(this);
-    }//GEN-LAST:event_miVolverActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         miVolver.doClick();
@@ -345,6 +341,38 @@ public class PantallaBajaClientes extends javax.swing.JFrame {
             System.out.println(e.getClass());
         }
     }//GEN-LAST:event_tfDniActionPerformed
+
+    private void miAltaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaClienteActionPerformed
+        Controlador.irpantallaAltaClientes(this);
+    }//GEN-LAST:event_miAltaClienteActionPerformed
+
+    private void miBajaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaClienteActionPerformed
+        Controlador.irpantallaBajaClientes(this);
+    }//GEN-LAST:event_miBajaClienteActionPerformed
+
+    private void miModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarClienteActionPerformed
+        Controlador.irpantallaModificarClientes(this);
+    }//GEN-LAST:event_miModificarClienteActionPerformed
+
+    private void miConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarClienteActionPerformed
+        Controlador.irpantallaConsultaClientes(this);
+    }//GEN-LAST:event_miConsultarClienteActionPerformed
+
+    private void miAltaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaAbogadoActionPerformed
+        Controlador.irpantallaAltaAbogados(this);
+    }//GEN-LAST:event_miAltaAbogadoActionPerformed
+
+    private void miBajaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaAbogadoActionPerformed
+        Controlador.irpantallaBajaAbogados(this);
+    }//GEN-LAST:event_miBajaAbogadoActionPerformed
+
+    private void miModificarAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarAbogadoActionPerformed
+        Controlador.irpantallaModificarAbogados(this);
+    }//GEN-LAST:event_miModificarAbogadoActionPerformed
+
+    private void miConultaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConultaAbogadoActionPerformed
+        Controlador.irpantallaConsultaAbogados(this);
+    }//GEN-LAST:event_miConultaAbogadoActionPerformed
 
     /**
      * @param args the command line arguments

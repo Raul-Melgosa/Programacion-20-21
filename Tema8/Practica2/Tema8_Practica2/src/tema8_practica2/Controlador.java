@@ -5,6 +5,10 @@
  */
 package tema8_practica2;
 
+import Vista.PantallaAltaClientes;
+import Vista.PantallaConsultaClientes;
+import Vista.PantallaBajaClientes;
+import Vista.PantallaModificarClientes;
 import ModeloBD.*;
 import ModeloUML.*;
 import Vista.*;
@@ -21,6 +25,8 @@ public class Controlador {
      */
     private static BaseDeDatos bd = new BaseDeDatos();
     private static TablaClientes tc = new TablaClientes();
+    private static TablaCasos tcaso = new TablaCasos();
+    private static TablaAbogados ta = new TablaAbogados();
     
     public static void main(String[] args) {
         PantallaPrincipal v1 = new PantallaPrincipal();
@@ -69,6 +75,38 @@ public class Controlador {
         nuevo.setVisible(true);        
     }
     
+    public static void irpantallaAltaAbogados(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaAltaAbogados nuevo=new PantallaAltaAbogados();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
+    public static void irpantallaBajaAbogados(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaBajaAbogados nuevo=new PantallaBajaAbogados();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
+    public static void irpantallaModificarAbogados(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaModificarAbogados nuevo=new PantallaModificarAbogados();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
+    public static void irpantallaConsultaAbogados(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaConsultaAbogados nuevo=new PantallaConsultaAbogados();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
     public static void salir()
     {
         System.exit(0);
@@ -78,6 +116,13 @@ public class Controlador {
     {
         Cliente c=new Cliente(dni, nombre, apellidos, direccion, telefono, correo);
         tc.altaCliente(bd.conectar(), c);
+        bd.desconectar();
+    }
+    
+    public static void hacerAltaAbogado(String dni, String nombre, String apellidos, String direccion) throws Exception
+    {
+        Abogado a=new Abogado(dni, nombre, apellidos, direccion);
+        ta.altaAbogado(bd.conectar(), a);
         bd.desconectar();
     }
 
@@ -94,6 +139,32 @@ public class Controlador {
         datos.add(c.getCorreo());
         return datos;
     }
+
+    public static ArrayList<String> realizarConsultaAbogadoUnico(String dni) throws Exception
+    {
+        Abogado a = ta.consultaAbogadoUnico(bd.conectar(), dni);
+        bd.desconectar();
+        ArrayList<String> datos = new ArrayList();
+        datos.add(a.getDni());
+        datos.add(a.getNombre());
+        datos.add(a.getApellidos());
+        datos.add(a.getDireccion());
+        return datos;
+    }
+
+    public static ArrayList<ArrayList<String>> hacerConsultaTodosClientes() throws Exception
+    {
+        ArrayList<ArrayList<String>> datos = tc.consultaTodosClientes(bd.conectar());
+        bd.desconectar();        
+        return datos;
+    }
+
+//    public static ArrayList<ArrayList<String>> hacerConsultaTodosAbogados() throws Exception
+//    {
+//        ArrayList<ArrayList<String>> datos = ta.consultaTodosAbogados(bd.conectar());
+//        bd.desconectar();        
+//        return datos;
+//    }
     
     public static void hacerBajaCliente(String dni) throws Exception
     {
@@ -105,5 +176,11 @@ public class Controlador {
     {
         Cliente c = new Cliente(dni,nombre,apellidos,direccion,telefono,correo);
         tc.modificarCliente(bd.conectar(), c);
+    }
+    
+    public static void modificarAbogado(String dni, String nombre, String apellidos, String direccion) throws Exception
+    {
+        Abogado c = new Abogado(dni,nombre,apellidos,direccion);
+        ta.modificarAbogado(bd.conectar(), c);
     }
 }

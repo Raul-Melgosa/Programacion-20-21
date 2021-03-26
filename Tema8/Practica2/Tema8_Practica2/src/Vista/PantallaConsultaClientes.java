@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import java.util.ArrayList;
 import tema8_practica2.Controlador;
 
 /**
@@ -27,7 +28,29 @@ public class PantallaConsultaClientes extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        labelTitulo = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        bAtras = new javax.swing.JButton();
+        bVolver = new javax.swing.JButton();
+        bAvanzar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        tfDni = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfNombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfApellidos = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tfDireccion = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tfTelefono = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        tfCorreo = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        taCasos = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         miAltaCliente = new javax.swing.JMenuItem();
@@ -48,6 +71,168 @@ public class PantallaConsultaClientes extends javax.swing.JFrame {
         miVolver = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
+        jPanel1Layout.columnWidths = new int[] {0, 15, 0, 15, 0, 15, 0};
+        jPanel1Layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0};
+        jPanel1.setLayout(jPanel1Layout);
+
+        labelTitulo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo.setText("Viendo cliente");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(labelTitulo, gridBagConstraints);
+
+        bAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda.png"))); // NOI18N
+        bAtras.setBorder(null);
+        bAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAtrasActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bAtras);
+
+        bVolver.setText("SALIR");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bVolver);
+
+        bAvanzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-derecha.png"))); // NOI18N
+        bAvanzar.setBorder(null);
+        bAvanzar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAvanzarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bAvanzar);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jPanel2, gridBagConstraints);
+
+        jLabel1.setText("Dni:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel1, gridBagConstraints);
+
+        tfDni.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfDni, gridBagConstraints);
+
+        jLabel2.setText("Nombre:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel2, gridBagConstraints);
+
+        tfNombre.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfNombre, gridBagConstraints);
+
+        jLabel3.setText("Apellidos:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel3, gridBagConstraints);
+
+        tfApellidos.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfApellidos, gridBagConstraints);
+
+        jLabel4.setText("Dirección:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel4, gridBagConstraints);
+
+        tfDireccion.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfDireccion, gridBagConstraints);
+
+        jLabel5.setText("Teléfono:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel5, gridBagConstraints);
+
+        tfTelefono.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfTelefono, gridBagConstraints);
+
+        jLabel6.setText("Correo:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel6, gridBagConstraints);
+
+        tfCorreo.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfCorreo, gridBagConstraints);
+
+        jScrollPane2.setEnabled(false);
+
+        taCasos.setEditable(false);
+        taCasos.setColumns(20);
+        taCasos.setRows(8);
+        jScrollPane2.setViewportView(taCasos);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jScrollPane2, gridBagConstraints);
+
+        jScrollPane1.setViewportView(jPanel1);
 
         jMenu1.setText("Clientes");
 
@@ -88,15 +273,35 @@ public class PantallaConsultaClientes extends javax.swing.JFrame {
         jMenu2.setText("Abogados");
 
         miAltaAbogado.setText("Dar un abogado de alta");
+        miAltaAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miAltaAbogado);
 
         miBajaAbogado.setText("Dar un abogado de baja");
+        miBajaAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miBajaAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miBajaAbogado);
 
         miModificarAbogado.setText("Modificar un abogado");
+        miModificarAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miModificarAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miModificarAbogado);
 
         miConultaAbogado.setText("Consultar abogados");
+        miConultaAbogado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConultaAbogadoActionPerformed(evt);
+            }
+        });
         jMenu2.add(miConultaAbogado);
 
         jMenuBar1.add(jMenu2);
@@ -120,11 +325,6 @@ public class PantallaConsultaClientes extends javax.swing.JFrame {
         jMenu4.setText("Volver");
 
         miVolver.setText("Volver");
-        miVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miVolverActionPerformed(evt);
-            }
-        });
         jMenu4.add(miVolver);
 
         jMenuBar1.add(jMenu4);
@@ -135,15 +335,55 @@ public class PantallaConsultaClientes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        miVolver.doClick();
+    }//GEN-LAST:event_bVolverActionPerformed
+
+    private ArrayList<ArrayList<String>> listaDatos;
+    private int posicion;
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try
+        {
+            jScrollPane1.getVerticalScrollBar().setUnitIncrement(8);
+            listaDatos=Controlador.hacerConsultaTodosClientes();
+            posicion=0;
+            labelTitulo.setText("Viendo cliente "+(posicion+1)+" de " + listaDatos.size());
+            mostrarDatos();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass());
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void bAvanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAvanzarActionPerformed
+        if(posicion!=(listaDatos.size()-1))
+        {
+            posicion++;
+            labelTitulo.setText("Viendo cliente "+(posicion+1)+" de " + listaDatos.size());
+        }
+        mostrarDatos();
+    }//GEN-LAST:event_bAvanzarActionPerformed
+
+    private void bAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtrasActionPerformed
+        if(posicion!=0)
+        {
+            posicion--;
+            labelTitulo.setText("Viendo cliente "+(posicion+1)+" de " + listaDatos.size());
+        }
+        mostrarDatos();
+    }//GEN-LAST:event_bAtrasActionPerformed
 
     private void miAltaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaClienteActionPerformed
         Controlador.irpantallaAltaClientes(this);
@@ -161,10 +401,37 @@ public class PantallaConsultaClientes extends javax.swing.JFrame {
         Controlador.irpantallaConsultaClientes(this);
     }//GEN-LAST:event_miConsultarClienteActionPerformed
 
-    private void miVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVolverActionPerformed
-        Controlador.irPantallaPrincipal(this);
-    }//GEN-LAST:event_miVolverActionPerformed
+    private void miAltaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaAbogadoActionPerformed
+        Controlador.irpantallaAltaAbogados(this);
+    }//GEN-LAST:event_miAltaAbogadoActionPerformed
 
+    private void miBajaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaAbogadoActionPerformed
+        Controlador.irpantallaBajaAbogados(this);
+    }//GEN-LAST:event_miBajaAbogadoActionPerformed
+
+    private void miModificarAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarAbogadoActionPerformed
+        Controlador.irpantallaModificarAbogados(this);
+    }//GEN-LAST:event_miModificarAbogadoActionPerformed
+
+    private void miConultaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConultaAbogadoActionPerformed
+        Controlador.irpantallaConsultaAbogados(this);
+    }//GEN-LAST:event_miConultaAbogadoActionPerformed
+
+    private void mostrarDatos()
+    {
+        taCasos.setText("");
+        tfDni.setText(listaDatos.get(posicion).get(0));
+        tfNombre.setText(listaDatos.get(posicion).get(1));
+        tfApellidos.setText(listaDatos.get(posicion).get(2));
+        tfDireccion.setText(listaDatos.get(posicion).get(3));
+        tfTelefono.setText(listaDatos.get(posicion).get(4));
+        tfCorreo.setText(listaDatos.get(posicion).get(5));
+        for(int x=6;x<listaDatos.get(posicion).size();x++)
+        {
+            taCasos.setText(taCasos.getText()+(listaDatos.get(posicion).get(x)));
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -204,11 +471,25 @@ public class PantallaConsultaClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAtras;
+    private javax.swing.JButton bAvanzar;
+    private javax.swing.JButton bVolver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelTitulo;
     private javax.swing.JMenuItem miAltaAbogado;
     private javax.swing.JMenuItem miAltaCaso;
     private javax.swing.JMenuItem miAltaCliente;
@@ -222,5 +503,12 @@ public class PantallaConsultaClientes extends javax.swing.JFrame {
     private javax.swing.JMenuItem miModificarCaso;
     private javax.swing.JMenuItem miModificarCliente;
     private javax.swing.JMenuItem miVolver;
+    private javax.swing.JTextArea taCasos;
+    private javax.swing.JTextField tfApellidos;
+    private javax.swing.JTextField tfCorreo;
+    private javax.swing.JTextField tfDireccion;
+    private javax.swing.JTextField tfDni;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfTelefono;
     // End of variables declaration//GEN-END:variables
 }

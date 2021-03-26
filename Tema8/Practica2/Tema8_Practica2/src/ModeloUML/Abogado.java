@@ -26,6 +26,10 @@ public class Abogado {
         this.listaCasos = new ArrayList();
     }
 
+    public Abogado() {
+        
+    }
+
     public String getDni() {
         return dni;
     }
