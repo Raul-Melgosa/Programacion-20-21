@@ -238,15 +238,35 @@ public class PantallaBajaAbogados extends javax.swing.JFrame {
         jMenu3.setText("Casos");
 
         miAltaCaso.setText("Dar un caso de alta");
+        miAltaCaso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaCasoActionPerformed(evt);
+            }
+        });
         jMenu3.add(miAltaCaso);
 
         miBajaCaso.setText("Dar un caso de baja");
+        miBajaCaso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miBajaCasoActionPerformed(evt);
+            }
+        });
         jMenu3.add(miBajaCaso);
 
         miModificarCaso.setText("Modificar un caso");
+        miModificarCaso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miModificarCasoActionPerformed(evt);
+            }
+        });
         jMenu3.add(miModificarCaso);
 
         miConsultaCaso.setText("Consultar casos");
+        miConsultaCaso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultaCasoActionPerformed(evt);
+            }
+        });
         jMenu3.add(miConsultaCaso);
 
         jMenuBar1.add(jMenu3);
@@ -254,6 +274,11 @@ public class PantallaBajaAbogados extends javax.swing.JFrame {
         jMenu4.setText("Volver");
 
         miVolver.setText("Volver");
+        miVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miVolverActionPerformed(evt);
+            }
+        });
         jMenu4.add(miVolver);
 
         jMenuBar1.add(jMenu4);
@@ -306,14 +331,6 @@ public class PantallaBajaAbogados extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfDniActionPerformed
 
-    private void miAltaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaAbogadoActionPerformed
-        Controlador.irpantallaAltaAbogados(this);
-    }//GEN-LAST:event_miAltaAbogadoActionPerformed
-
-    private void miBajaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaAbogadoActionPerformed
-        Controlador.irpantallaBajaAbogados(this);
-    }//GEN-LAST:event_miBajaAbogadoActionPerformed
-
     private void miAltaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaClienteActionPerformed
         Controlador.irpantallaAltaClientes(this);
     }//GEN-LAST:event_miAltaClienteActionPerformed
@@ -330,6 +347,14 @@ public class PantallaBajaAbogados extends javax.swing.JFrame {
         Controlador.irpantallaConsultaClientes(this);
     }//GEN-LAST:event_miConsultarClienteActionPerformed
 
+    private void miAltaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaAbogadoActionPerformed
+        Controlador.irpantallaAltaAbogados(this);
+    }//GEN-LAST:event_miAltaAbogadoActionPerformed
+
+    private void miBajaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaAbogadoActionPerformed
+        Controlador.irpantallaBajaAbogados(this);
+    }//GEN-LAST:event_miBajaAbogadoActionPerformed
+
     private void miModificarAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarAbogadoActionPerformed
         Controlador.irpantallaModificarAbogados(this);
     }//GEN-LAST:event_miModificarAbogadoActionPerformed
@@ -337,6 +362,26 @@ public class PantallaBajaAbogados extends javax.swing.JFrame {
     private void miConultaAbogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConultaAbogadoActionPerformed
         Controlador.irpantallaConsultaAbogados(this);
     }//GEN-LAST:event_miConultaAbogadoActionPerformed
+
+    private void miAltaCasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaCasoActionPerformed
+        Controlador.irpantallaAltaCasos(this);
+    }//GEN-LAST:event_miAltaCasoActionPerformed
+
+    private void miBajaCasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaCasoActionPerformed
+        Controlador.irpantallaBajaCasos(this);
+    }//GEN-LAST:event_miBajaCasoActionPerformed
+
+    private void miModificarCasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarCasoActionPerformed
+        Controlador.irpantallaModificarCasos(this);
+    }//GEN-LAST:event_miModificarCasoActionPerformed
+
+    private void miConsultaCasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultaCasoActionPerformed
+        Controlador.irpantallaConsultaCasos(this);
+    }//GEN-LAST:event_miConsultaCasoActionPerformed
+
+    private void miVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVolverActionPerformed
+        Controlador.irPantallaPrincipal(this);
+    }//GEN-LAST:event_miVolverActionPerformed
 
     /**
      * @param args the command line arguments

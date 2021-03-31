@@ -12,6 +12,8 @@ import Vista.PantallaModificarClientes;
 import ModeloBD.*;
 import ModeloUML.*;
 import Vista.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -107,6 +109,38 @@ public class Controlador {
         nuevo.setVisible(true);        
     }
     
+    public static void irpantallaAltaCasos(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaAltaCasos nuevo=new PantallaAltaCasos();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
+    public static void irpantallaBajaCasos(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaBajaCasos nuevo=new PantallaBajaCasos();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
+    public static void irpantallaModificarCasos(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaModificarCasos nuevo=new PantallaModificarCasos();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
+    public static void irpantallaConsultaCasos(javax.swing.JFrame anterior)
+    {
+        anterior.dispose();
+        PantallaConsultaCasos nuevo=new PantallaConsultaCasos();
+        nuevo.setLocationRelativeTo(null);
+        nuevo.setVisible(true);        
+    }
+    
     public static void salir()
     {
         System.exit(0);
@@ -159,12 +193,12 @@ public class Controlador {
         return datos;
     }
 
-//    public static ArrayList<ArrayList<String>> hacerConsultaTodosAbogados() throws Exception
-//    {
-//        ArrayList<ArrayList<String>> datos = ta.consultaTodosAbogados(bd.conectar());
-//        bd.desconectar();        
-//        return datos;
-//    }
+    public static ArrayList<ArrayList<String>> hacerConsultaTodosAbogados() throws Exception
+    {
+        ArrayList<ArrayList<String>> datos = ta.consultaTodosAbogados(bd.conectar());
+        bd.desconectar();        
+        return datos;
+    }
     
     public static void hacerBajaCliente(String dni) throws Exception
     {
@@ -182,5 +216,32 @@ public class Controlador {
     {
         Abogado c = new Abogado(dni,nombre,apellidos,direccion);
         ta.modificarAbogado(bd.conectar(), c);
+    }
+    
+    public static void hacerAltaCaso(String numeroExpediente, String estado, String fechaInicio, String fechaFin, String dni) throws Exception
+    {
+        Caso c = new Caso(numeroExpediente, LocalDate.parse(fechaInicio, DateTimeFormatter.ISO_DATE), LocalDate.parse(fechaFin), estado, tc.consultaClienteUnico(bd.conectar(), dni));
+        tcaso.hacerAltaCaso(bd.conectar(),c);
+        bd.desconectar();
+    }
+    
+    public static void hacerBajaCaso(String numeroExpediente) throws Exception
+    {
+        tcaso.hacerBajaCaso(bd.conectar(),numeroExpediente);
+        bd.desconectar();
+    }
+    
+    public static ArrayList<String> realizarConsultaCasoUnico(String numeroExpediente) throws Exception
+    {
+        ArrayList<String> c = tcaso.hacerConsultaCaso(bd.conectar(),numeroExpediente);
+        bd.desconectar();
+        return c;
+    }
+    
+    public static ArrayList<String> hacerConsultaDniAbogados() throws Exception
+    {
+        ArrayList<String> c = ta.hacerConsultaDniAbogados(bd.conectar());
+        bd.desconectar();
+        return c;
     }
 }

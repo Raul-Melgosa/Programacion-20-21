@@ -5,21 +5,21 @@
  */
 package Vista;
 
+import java.util.ArrayList;
 import tema8_practica2.Controlador;
 
 /**
  *
  * @author 1GDAW09
  */
-public class PantallaPrincipal extends javax.swing.JFrame {
+public class PantallaConsultaCasos extends javax.swing.JFrame {
 
     /**
-     * Creates new form PantallaPrincipal
+     * Creates new form PantallaClientes
      */
-    public PantallaPrincipal() {
+    public PantallaConsultaCasos() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,8 +30,23 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        labelTitulo = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        bAtras = new javax.swing.JButton();
+        bVolver = new javax.swing.JButton();
+        bAvanzar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        tfDni = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfNombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfApellidos = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tfDireccion = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        taCasos = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         miAltaCliente = new javax.swing.JMenuItem();
@@ -52,31 +67,138 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         miVolver = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(550, 400));
-        setMinimumSize(new java.awt.Dimension(550, 400));
-        setPreferredSize(new java.awt.Dimension(550, 400));
-        getContentPane().setLayout(new java.awt.GridBagLayout());
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Gabinete de abogados");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(50, 50, 50, 50);
-        getContentPane().add(jLabel1, gridBagConstraints);
-
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
+
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
+        jPanel1Layout.columnWidths = new int[] {0, 15, 0, 15, 0, 15, 0};
+        jPanel1Layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0};
+        jPanel1.setLayout(jPanel1Layout);
+
+        labelTitulo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo.setText("Viendo abogado");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.insets = new java.awt.Insets(10, 100, 10, 100);
-        getContentPane().add(jButton1, gridBagConstraints);
+        jPanel1.add(labelTitulo, gridBagConstraints);
+
+        bAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda.png"))); // NOI18N
+        bAtras.setBorder(null);
+        bAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAtrasActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bAtras);
+
+        bVolver.setText("SALIR");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bVolver);
+
+        bAvanzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-derecha.png"))); // NOI18N
+        bAvanzar.setBorder(null);
+        bAvanzar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAvanzarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bAvanzar);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jPanel2, gridBagConstraints);
+
+        jLabel1.setText("Dni:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel1, gridBagConstraints);
+
+        tfDni.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfDni, gridBagConstraints);
+
+        jLabel2.setText("Nombre:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel2, gridBagConstraints);
+
+        tfNombre.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfNombre, gridBagConstraints);
+
+        jLabel3.setText("Apellidos:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel3, gridBagConstraints);
+
+        tfApellidos.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfApellidos, gridBagConstraints);
+
+        jLabel4.setText("Dirección:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jLabel4, gridBagConstraints);
+
+        tfDireccion.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 200;
+        jPanel1.add(tfDireccion, gridBagConstraints);
+
+        jScrollPane2.setEnabled(false);
+
+        taCasos.setEditable(false);
+        taCasos.setColumns(20);
+        taCasos.setRows(8);
+        jScrollPane2.setViewportView(taCasos);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(jScrollPane2, gridBagConstraints);
+
+        jScrollPane1.setViewportView(jPanel1);
 
         jMenu1.setText("Clientes");
 
@@ -200,12 +322,59 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Controlador.salir();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        miVolver.doClick();
+    }//GEN-LAST:event_bVolverActionPerformed
+
+    private ArrayList<ArrayList<String>> listaDatos;
+    private int posicion;
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try
+        {
+            jScrollPane1.getVerticalScrollBar().setUnitIncrement(8);
+//            listaDatos=Controlador.hacerConsultaTodosAbogados();
+            posicion=0;
+            labelTitulo.setText("Viendo abogado "+(posicion+1)+" de " + listaDatos.size());
+            mostrarDatos();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass());
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void bAvanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAvanzarActionPerformed
+        if(posicion!=(listaDatos.size()-1))
+        {
+            posicion++;
+            labelTitulo.setText("Viendo abogado "+(posicion+1)+" de " + listaDatos.size());
+        }
+        mostrarDatos();
+    }//GEN-LAST:event_bAvanzarActionPerformed
+
+    private void bAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtrasActionPerformed
+        if(posicion!=0)
+        {
+            posicion--;
+            labelTitulo.setText("Viendo abogado "+(posicion+1)+" de " + listaDatos.size());
+        }
+        mostrarDatos();
+    }//GEN-LAST:event_bAtrasActionPerformed
 
     private void miAltaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaClienteActionPerformed
         Controlador.irpantallaAltaClientes(this);
@@ -259,6 +428,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Controlador.irPantallaPrincipal(this);
     }//GEN-LAST:event_miVolverActionPerformed
 
+    private void mostrarDatos()
+    {
+        taCasos.setText("");
+        tfDni.setText(listaDatos.get(posicion).get(0));
+        tfNombre.setText(listaDatos.get(posicion).get(1));
+        tfApellidos.setText(listaDatos.get(posicion).get(2));
+        tfDireccion.setText(listaDatos.get(posicion).get(3));
+        for(int x=4;x<listaDatos.get(posicion).size();x++) //Inicio en x=4 porque los datos relativos a los casos empiezan ahí
+        {
+            taCasos.setText(taCasos.getText()+(listaDatos.get(posicion).get(x)));
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -276,32 +458,57 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaConsultaCasos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaConsultaCasos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaConsultaCasos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaConsultaCasos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaPrincipal().setVisible(true);
+                new PantallaConsultaCasos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bAtras;
+    private javax.swing.JButton bAvanzar;
+    private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelTitulo;
     private javax.swing.JMenuItem miAltaAbogado;
     private javax.swing.JMenuItem miAltaCaso;
     private javax.swing.JMenuItem miAltaCliente;
@@ -315,5 +522,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miModificarCaso;
     private javax.swing.JMenuItem miModificarCliente;
     private javax.swing.JMenuItem miVolver;
+    private javax.swing.JTextArea taCasos;
+    private javax.swing.JTextField tfApellidos;
+    private javax.swing.JTextField tfDireccion;
+    private javax.swing.JTextField tfDni;
+    private javax.swing.JTextField tfNombre;
     // End of variables declaration//GEN-END:variables
 }

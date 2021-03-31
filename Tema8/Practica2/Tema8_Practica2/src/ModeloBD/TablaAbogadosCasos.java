@@ -7,6 +7,7 @@ package ModeloBD;
 
 import java.sql.*;
 import ModeloUML.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,5 +16,21 @@ import ModeloUML.*;
 public class TablaAbogadosCasos {
     private Connection con;
     
-    
+    public ArrayList<String> consultaCasosAbogados(Connection conexion, String dni) throws Exception
+    {
+        this.con=conexion;
+        
+        String plantilla = "SELECT numeroExpediente FROM abogados-casos WHERE UPPER(dni)=UPPER(?)";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ps.setString(1, dni);
+        ResultSet resultados = ps.executeQuery();
+        ArrayList <String> lista = new ArrayList();
+        int x=0;
+        while(resultados.next())
+        {
+            x++;
+            lista.add(resultados.getString(x));
+        }
+        return lista;
+    }
 }

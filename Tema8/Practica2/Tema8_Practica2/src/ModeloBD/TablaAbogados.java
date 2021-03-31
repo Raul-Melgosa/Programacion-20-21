@@ -7,6 +7,7 @@ package ModeloBD;
 
 import ModeloUML.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -72,5 +73,54 @@ public class TablaAbogados {
         }
     }
     
+    public ArrayList<ArrayList<String>> consultaTodosAbogados(Connection conexion) throws Exception
+    {
+        this.con=conexion;
+        String plantilla = "SELECT * FROM abogados";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<ArrayList<String>> listaAbogados = new ArrayList();
+        while(rs.next())
+        {
+            ArrayList<String> abogado = new ArrayList();
+            abogado.add(rs.getString("dni"));
+            abogado.add(rs.getString("nombre"));
+            abogado.add(rs.getString("apellidos"));
+            abogado.add(rs.getString("direccion"));
+            
+            TablaCasos tc = new TablaCasos();
+            TablaAbogadosCasos tac = new TablaAbogadosCasos();
+            //ArrayList<Caso> listaCasos=tc.consultaVariosCasos(con, tac.consultaCasosAbogados(this.con,rs.getString("dni")));
+//            for(int x=0;x<listaCasos.size();x++)
+//            {
+//                abogado.add(listaCasos.get(x).toString());
+//            }
+        }
+        if(listaAbogados.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return listaAbogados;
+        }
+    }
     
+    public ArrayList<String> hacerConsultaDniAbogados(Connection conexion) throws Exception
+    {
+        this.con=conexion;
+        String plantilla = "SELECT dni FROM abogados";
+        PreparedStatement ps = con.prepareStatement(plantilla);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<String> c = new ArrayList();
+        while(rs.next())
+        {
+            c.add(rs.getString("dni"));
+        }
+        if(c.isEmpty())
+        {
+            c=null;
+        }
+        return c;
+    }
 }

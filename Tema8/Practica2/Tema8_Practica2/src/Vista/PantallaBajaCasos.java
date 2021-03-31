@@ -5,21 +5,22 @@
  */
 package Vista;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import tema8_practica2.Controlador;
 
 /**
  *
  * @author 1GDAW09
  */
-public class PantallaPrincipal extends javax.swing.JFrame {
+public class PantallaBajaCasos extends javax.swing.JFrame {
 
     /**
-     * Creates new form PantallaPrincipal
+     * Creates new form PantallaClientes
      */
-    public PantallaPrincipal() {
+    public PantallaBajaCasos() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,7 +32,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        tfExpediente = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfEstado = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tfFechaInicio = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tfFechaFin = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        bAceptar = new javax.swing.JButton();
+        bVolver = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         miAltaCliente = new javax.swing.JMenuItem();
@@ -52,31 +63,104 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         miVolver = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(550, 400));
-        setMinimumSize(new java.awt.Dimension(550, 400));
-        setPreferredSize(new java.awt.Dimension(550, 400));
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        setFocusCycleRoot(false);
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0, 15, 0, 15, 0, 15, 0};
+        layout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0, 15, 0};
+        getContentPane().setLayout(layout);
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Formulario de baja de casos");
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Gabinete de abogados");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(50, 50, 50, 50);
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("Numero Expediente:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(jLabel2, gridBagConstraints);
+
+        tfExpediente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                tfExpedienteActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.insets = new java.awt.Insets(10, 100, 10, 100);
-        getContentPane().add(jButton1, gridBagConstraints);
+        getContentPane().add(tfExpediente, gridBagConstraints);
+
+        jLabel3.setText("Estado:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(jLabel3, gridBagConstraints);
+
+        tfEstado.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(tfEstado, gridBagConstraints);
+
+        jLabel4.setText("Fecha Inicio:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(jLabel4, gridBagConstraints);
+
+        tfFechaInicio.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(tfFechaInicio, gridBagConstraints);
+
+        jLabel5.setText("Fecha Fin:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(jLabel5, gridBagConstraints);
+
+        tfFechaFin.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(tfFechaFin, gridBagConstraints);
+
+        bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bAceptar);
+
+        bVolver.setText("Volver");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bVolver);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         jMenu1.setText("Clientes");
 
@@ -203,9 +287,41 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Controlador.salir();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        miVolver.doClick();
+    }//GEN-LAST:event_bVolverActionPerformed
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        try
+        {
+            Controlador.hacerBajaCaso(tfExpediente.getText());
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass());
+        }
+    }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void tfExpedienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfExpedienteActionPerformed
+        try
+        {
+            ArrayList<String> a = Controlador.realizarConsultaCasoUnico(tfExpediente.getText());
+            if(a!= null)
+            {
+                tfEstado.setText(a.get(0));
+                tfFechaInicio.setText(a.get(1));
+                tfFechaFin.setText(a.get(2));
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "No se ha encontrado el abogadtfExpediente dni " + tfExpediente.getText());
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getClass());
+        }
+    }//GEN-LAST:event_tfExpedienteActionPerformed
 
     private void miAltaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaClienteActionPerformed
         Controlador.irpantallaAltaClientes(this);
@@ -276,32 +392,53 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaBajaCasos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaBajaCasos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaBajaCasos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaBajaCasos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaPrincipal().setVisible(true);
+                new PantallaBajaCasos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bAceptar;
+    private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem miAltaAbogado;
     private javax.swing.JMenuItem miAltaCaso;
     private javax.swing.JMenuItem miAltaCliente;
@@ -315,5 +452,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miModificarCaso;
     private javax.swing.JMenuItem miModificarCliente;
     private javax.swing.JMenuItem miVolver;
+    private javax.swing.JTextField tfEstado;
+    private javax.swing.JTextField tfExpediente;
+    private javax.swing.JTextField tfFechaFin;
+    private javax.swing.JTextField tfFechaInicio;
     // End of variables declaration//GEN-END:variables
 }
