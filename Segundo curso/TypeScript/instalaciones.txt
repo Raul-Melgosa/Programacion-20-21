@@ -1,0 +1,5 @@
+Para poder utilizar typescript en visual studio hay que instalar node.js y tsc
+
+    1.- Para instalar node.js -> ir a https://nodejs.org/es/download descargarlo e instalarlo.
+    2.- Para instalar typescript y tsc: en línea de comandos: npm install -g typescript.
+    3.- Para comprobar que funciona; tsc version
