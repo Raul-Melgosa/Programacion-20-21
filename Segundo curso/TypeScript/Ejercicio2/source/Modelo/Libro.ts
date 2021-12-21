@@ -1,4 +1,4 @@
-/// <reference path="Autor.ts"/>
+/// <reference path="./Autor.ts"/>
 
 enum tipoLibro{novela,teatro,poesia,ensayo};
 

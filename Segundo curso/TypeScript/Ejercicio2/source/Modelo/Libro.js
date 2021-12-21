@@ -1,4 +1,4 @@
-/// <reference path="Autor.ts"/>
+/// <reference path="./Autor.ts"/>
 var tipoLibro;
 (function (tipoLibro) {
     tipoLibro[tipoLibro["novela"] = 0] = "novela";
